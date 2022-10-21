@@ -25,11 +25,11 @@ a:hover {
 }
 
 body {
-  margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
+  flex-direction: column;
+  margin: 0;
   min-height: 100vh;
+  min-width: 320px;
 }
 
 h1 {
@@ -41,13 +41,6 @@ h1 {
   padding: 2em;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -55,8 +48,5 @@ h1 {
   }
   a:hover {
     color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
   }
 }
