@@ -2,68 +2,67 @@
 import { computed } from 'vue'
 
 const props = withDefaults(defineProps<{
-  label: string
-  primary?: boolean
-  size?: 'small' | 'medium' | 'large'
+	label: string
+	primary?: boolean
+	size?: 'small' | 'medium' | 'large'
 }>(), {
-  primary: false,
-  size: 'medium'
+	primary: false,
+	size: 'medium'
 })
 
 const emit = defineEmits(['click'])
 
 const classes = computed(() => ({
-  'Button': true,
-  'Button--primary': props.primary,
-  'Button--secondary': !props.primary,
-  [`Button--${props.size}`]: true,
+	'Button': true,
+	'Button--primary': props.primary,
+	'Button--secondary': !props.primary,
+	[`Button--${props.size}`]: true,
 }))
-
 </script>
 
 <template>
-  <button
-    :class="classes"
-    type="button"
-    @click="emit('click')">
-    {{ label }}
-  </button>
+	<button
+		:class="classes"
+		type="button"
+		@click="emit('click')">
+		{{ label }}
+	</button>
 </template>
 
 <style lang="scss">
 .Button {
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 700;
-  border: 0;
-  border-radius: 3em;
-  cursor: pointer;
-  display: inline-block;
-  line-height: 1;
+	font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: 700;
+	border: 0;
+	border-radius: 3em;
+	cursor: pointer;
+	display: inline-block;
+	line-height: 1;
 
-  &--primary {
-    color: white;
-    background-color: #1ea7fd;
-  }
+	&--primary {
+		color: white;
+		background-color: #1ea7fd;
+	}
 
-  &--secondary {
-    color: #333;
-    background-color: transparent;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
-  }
+	&--secondary {
+		color: #333;
+		background-color: transparent;
+		box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+	}
 
-  &--small {
-    font-size: 12px;
-    padding: 10px 16px;
-  }
+	&--small {
+		font-size: 12px;
+		padding: 10px 16px;
+	}
 
-  &--medium {
-    font-size: 14px;
-    padding: 11px 20px;
-  }
-  
-  &--large {
-    font-size: 16px;
-    padding: 12px 24px;
-  }
+	&--medium {
+		font-size: 14px;
+		padding: 11px 20px;
+	}
+	
+	&--large {
+		font-size: 16px;
+		padding: 12px 24px;
+	}
 }
 </style>
