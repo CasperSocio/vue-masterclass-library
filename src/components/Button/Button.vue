@@ -14,7 +14,7 @@ const classes = [
     'Button',
     `Button--${ props.shape }`,
     `Button--${ props.variant }`,
-].join(' ')
+]
 </script>
 
 <template>
@@ -23,7 +23,7 @@ const classes = [
     </button>
 </template>
 
-<style>
+<style scoped>
 .Button {
     --button-bg: slategray;
     --button-border-radius: 5rem;
