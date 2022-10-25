@@ -5,7 +5,8 @@ export default {
     title: 'Components/Button',
     component: Button,
     argTypes: {
-        label: {
+        default: {
+            control: 'text',
             defaultValue: 'Click me'
         },
         shape: {
@@ -28,7 +29,7 @@ const Template: StoryFn = (args) => ({
     setup() {
         return { args }
     },
-    template: '<Button v-bind="args" />'
+    template: '<Button v-bind="args">{{ args.default }}</Button>'
 })
 
 export const Default = Template.bind({})

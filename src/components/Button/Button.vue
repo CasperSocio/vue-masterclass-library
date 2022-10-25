@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const props = withDefaults(defineProps<{
-    label: string
     shape?: 'pill' | 'square'
     type?: 'button' | 'reset' | 'submit'
     variant?: 'primary' | 'secondary'
@@ -21,7 +20,7 @@ const classes = [
     <button
         :class="classes"
         :type="type">
-        {{ label }}
+        <slot />
     </button>
 </template>
 
