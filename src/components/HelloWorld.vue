@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import Button from './Button.vue'
+import Button from './Button/Button.vue'
 
 const props = defineProps<{
   msg: string
