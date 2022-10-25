@@ -2,8 +2,7 @@
 	<li class="MenuItem">
 		<button
 			class="MenuItem__button"
-			type="button"
-		>
+			type="button">
 			<slot />
 		</button>
 	</li>

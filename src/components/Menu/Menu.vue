@@ -15,8 +15,7 @@ defineProps<{
 <template>
 	<menu class="Menu">
 		<MenuItem
-			v-for="action in actions"
-		>
+			v-for="action in actions">
 			{{ action.label }}
 		</MenuItem>
 	</menu>

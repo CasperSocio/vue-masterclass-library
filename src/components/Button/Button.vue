@@ -19,8 +19,7 @@ const classes = [
 <template>
 	<button
 		:class="classes"
-		:type="type"
-	>
+		:type="type">
 		<slot />
 	</button>
 </template>

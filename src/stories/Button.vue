@@ -24,8 +24,7 @@ const classes = computed(() => ({
 	<button
 		:class="classes"
 		type="button"
-		@click="emit('click')"
-	>
+		@click="emit('click')">
 		{{ label }}
 	</button>
 </template>
