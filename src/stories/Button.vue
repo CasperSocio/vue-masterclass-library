@@ -29,7 +29,7 @@ const classes = computed(() => ({
 	</button>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 .Button {
 	font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-weight: 700;
