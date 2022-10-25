@@ -18,12 +18,14 @@ const classes = [
 </script>
 
 <template>
-    <button :class="classes" :type="type">
+    <button
+        :class="classes"
+        :type="type">
         {{ label }}
     </button>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .Button {
     --button-bg: slategray;
     --button-border-radius: 5rem;
@@ -38,20 +40,21 @@ const classes = [
     font-weight: 500;
     padding: 0.6em 1.2em;
     transition: border-color 0.25s;
-}
-.Button:hover {
-    border-color: #646cff;
-}
-.Button:focus,
-.Button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
-}
 
-.Button--primary {
-    --button-bg: slateblue;
-}
-
-.Button--square {
-    --button-border-radius: 4px;
+    &:hover {
+        border-color: #646cff;
+    }
+    &:focus,
+    &:focus-visible {
+        outline: 4px auto -webkit-focus-ring-color;
+    }
+    
+    &--primary {
+        --button-bg: slateblue;
+    }
+    
+    &--square {
+        --button-border-radius: 4px;
+    }
 }
 </style>
