@@ -4,11 +4,13 @@
 	"version": "1.0.0",
 	"type": "module",
 	"scripts": {
-		"dev": "vite",
 		"build": "vue-tsc --noEmit && vite build",
+		"dev": "vite",
 		"preview": "vite preview",
 		"storybook": "start-storybook -p 6006",
-		"storybook:build": "build-storybook"
+		"storybook:build": "build-storybook",
+		"test": "cypress open",
+		"test:components": "cypress open --component"
 	},
 	"dependencies": {
 		"vue": "^3.2.41"
@@ -26,6 +28,7 @@
 		"@typescript-eslint/parser": "^5.40.1",
 		"@vitejs/plugin-vue": "^3.1.2",
 		"babel-loader": "^8.2.5",
+		"cypress": "^10.10.0",
 		"eslint": "^8.26.0",
 		"eslint-plugin-vue": "^9.6.0",
 		"sass": "^1.55.0",
