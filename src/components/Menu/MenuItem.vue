@@ -1,11 +1,12 @@
 <template>
-  <li class="MenuItem">
-    <button
-      class="MenuItem__button"
-      type="button">
-      <slot />
-    </button>
-  </li>
+	<li class="MenuItem">
+		<button
+			class="MenuItem__button"
+			type="button"
+		>
+			<slot />
+		</button>
+	</li>
 </template>
 
 <style>

@@ -14,8 +14,8 @@ describe('Button', () => {
 	it('renders slot content', () => {
 		cy.mount(Button, {
 			slots: {
-				default: () => 'Click me'
-			}
+				default: () => 'Click me',
+			},
 		})
 		cy.get('Button')
 			.should('have.text', 'Click me')

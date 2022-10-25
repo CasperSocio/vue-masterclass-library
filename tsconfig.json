@@ -19,6 +19,7 @@
 		"strict": true,
 		"target": "ES2019",
 		"types": [
+			"cypress",
 			"vite/client"
 		],
 		"typeRoots": [
@@ -30,6 +31,7 @@
 		"node_modules"
 	],
 	"include": [
+		"cypress/**/*.ts",
 		"src/**/*.ts",
 		"src/**/*.tsx",
 		"src/**/*.vue",

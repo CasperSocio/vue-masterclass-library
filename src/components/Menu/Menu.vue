@@ -2,23 +2,24 @@
 import MenuItem from './MenuItem.vue'
 
 type Action = {
-  /** The text to display on the menu item */
-  label: string
+	/** The text to display on the menu item */
+	label: string
 }
 
 defineProps<{
-  /** Menu content/items */
-  actions: Action[]
+	/** Menu content/items */
+	actions: Action[]
 }>()
 </script>
 
 <template>
-  <menu class="Menu">
-    <MenuItem
-      v-for="action in actions">
-      {{ action.label }}
-    </MenuItem>
-  </menu>
+	<menu class="Menu">
+		<MenuItem
+			v-for="action in actions"
+		>
+			{{ action.label }}
+		</MenuItem>
+	</menu>
 </template>
 
 <style>

@@ -2,26 +2,29 @@ module.exports = {
 	env: {
 		browser: true,
 		es2021: true,
+		'cypress/globals': true,
 	},
 	extends: [
 		'eslint:recommended',
 		'plugin:@typescript-eslint/recommended',
 		'plugin:vue/vue3-recommended',
+		'plugin:cypress/recommended',
 	],
 	overrides: [],
-	parser: '@typescript-eslint/parser',
 	parserOptions: {
-		ecmaVersion: 'latest',
-		sourceType: 'module',
+		parser: '@typescript-eslint/parser',
 	},
 	plugins: [
-		'vue',
 		'@typescript-eslint',
+		'cypress',
+		'vue',
 	],
+	root: true,
 	rules: {
 		camelcase: ['warn', { properties: 'always' }],
-		'comma-dangle': ['warn', 'always-multiline'],
-		indent: ['warn', 'tab', { SwitchCase: 1 }],
+		'comma-dangle': 'off',
+		'eol-last': ['warn', 'always'],
+		indent: 'off',
 		'linebreak-style': ['error', 'unix'],
 		'max-len': ['warn', {
 			ignoreComments: true,
@@ -35,5 +38,7 @@ module.exports = {
 			baseIndent: 1,
 			closeBracket: 0,
 		}],
+		'@typescript-eslint/comma-dangle': ['warn', 'always-multiline'],
+		'@typescript-eslint/indent': ['warn', 'tab', { SwitchCase: 1 }],
 	},
 }

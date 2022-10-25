@@ -1,27 +1,28 @@
 <script setup lang="ts">
 const props = withDefaults(defineProps<{
-    shape?: 'pill' | 'square'
-    type?: 'button' | 'reset' | 'submit'
-    variant?: 'primary' | 'secondary'
+	shape?: 'pill' | 'square'
+	type?: 'button' | 'reset' | 'submit'
+	variant?: 'primary' | 'secondary'
 }>(), {
-    shape: 'pill',
-    type: 'button',
-    variant: 'secondary'
+	shape: 'pill',
+	type: 'button',
+	variant: 'secondary',
 })
 
 const classes = [
-    'Button',
-    `Button--${ props.shape }`,
-    `Button--${ props.variant }`,
+	'Button',
+	`Button--${ props.shape }`,
+	`Button--${ props.variant }`,
 ]
 </script>
 
 <template>
-    <button
-        :class="classes"
-        :type="type">
-        <slot />
-    </button>
+	<button
+		:class="classes"
+		:type="type"
+	>
+		<slot />
+	</button>
 </template>
 
 <style scoped lang="scss">

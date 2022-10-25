@@ -1,7 +1,9 @@
 <template>
-    <header class="Header">
-        <h1 class="Header__brand-name">Vue Masterclass</h1>
-    </header>
+	<header class="Header">
+		<h1 class="Header__brand-name">
+			Vue Masterclass
+		</h1>
+	</header>
 </template>
 
 <style>
