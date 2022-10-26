@@ -9,6 +9,8 @@ const props = withDefaults(defineProps<{
 	variant: 'secondary',
 })
 
+const emit = defineEmits(['click'])
+
 const classes = [
 	'Button',
 	`Button--${ props.shape }`,
@@ -19,7 +21,8 @@ const classes = [
 <template>
 	<button
 		:class="classes"
-		:type="type">
+		:type="type"
+		@click="emit('click')">
 		<slot />
 	</button>
 </template>

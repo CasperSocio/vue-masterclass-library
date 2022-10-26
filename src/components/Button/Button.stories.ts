@@ -21,10 +21,11 @@ export default {
 			defaultValue: 'secondary',
 			options: ['primary', 'secondary'],
 		},
+		onClick: {},
 	},
 } as Meta<typeof Button>
 
-const Template: StoryFn = (args) => ({
+const Template: StoryFn<typeof Button> = (args) => ({
 	components: { Button },
 	setup() {
 		return { args }
