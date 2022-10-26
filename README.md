@@ -15,6 +15,20 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 
 You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
 
+## Technologies
+
+- JS framework - [Vue](https://vuejs.org/)
+- Frontend tooling (builder) - [Vite](https://vitejs.dev/)
+- Frontend workshop - [Storybook](https://storybook.js.org/)
+- Linting
+	- [ESLint](https://eslint.org/)
+	- [ESLint-plugin-vue](https://eslint.vuejs.org/)
+	- [TypeScript ESLint](https://typescript-eslint.io/)
+- Programming language - [TypeScript](https://www.typescriptlang.org/)
+- State management - [Pinia](https://pinia.vuejs.org/)
+- Styling language - [Sass](https://sass-lang.com/)
+- Test suite - [Cypress](https://www.cypress.io/)
+
 ## Get Started
 
 Run `npm ci` to install dependencies.
