@@ -1,27 +1,10 @@
 <script setup lang="ts">
-import MyHeader from './Header.vue'
-import { Ref, ref } from 'vue'
-
-const user: Ref<Record<string, unknown> | null> = ref(null)
-
-const handleLogin = () => {
-	user.value = { name: 'Jane Doe' }
-}
-const handleLogout = () => {
-	user.value = null
-}
-const handleCreateAccount = () => {
-	handleLogin()
-}
+import Header from './Header.vue'
 </script>
 
 <template>
 	<article>
-		<my-header
-			:user="user"
-			@login="handleLogin"
-			@logout="handleLogout"
-			@create-account="handleCreateAccount" />
+		<Header />
 
 		<section>
 			<h2>Pages in Storybook</h2>

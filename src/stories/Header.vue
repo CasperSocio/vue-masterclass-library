@@ -1,11 +1,18 @@
 <script setup lang="ts">
+import { useAuthStore } from '@/stores/auth'
 import MyButton from './Button.vue'
 
-defineProps<{
-	user: Record<string, unknown> | null
-}>()
+const auth = useAuthStore()
 
-defineEmits(['login', 'logout', 'createAccount'])
+const handleLogin = () => {
+	auth.login()
+}
+const handleLogout = () => {
+	auth.logout()
+}
+const handleCreateAccount = () => {
+	handleLogin()
+}
 </script>
 
 <template>
@@ -35,26 +42,26 @@ defineEmits(['login', 'logout', 'createAccount'])
 			</div>
 			<div>
 				<span
-					v-if="user"
+					v-if="auth.user"
 					class="welcome">
-					Welcome, <b>{{ user.name }}</b>!
+					Welcome, <b>{{ auth.userFullName }}</b>!
 				</span>
 				<my-button
-					v-if="user"
+					v-if="auth.user"
 					size="small"
 					label="Log out"
-					@click="$emit('logout')" />
+					@click="handleLogout" />
 				<my-button
-					v-if="!user"
+					v-if="!auth.user"
 					size="small"
 					label="Log in"
-					@click="$emit('login')" />
+					@click="handleLogin" />
 				<my-button
-					v-if="!user"
+					v-if="!auth.user"
 					primary
 					size="small"
 					label="Sign up"
-					@click="$emit('createAccount')" />
+					@click="handleCreateAccount" />
 			</div>
 		</div>
 	</header>
