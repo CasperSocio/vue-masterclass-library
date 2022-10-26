@@ -14,8 +14,7 @@ defineProps<{
 
 <template>
 	<menu class="Menu">
-		<MenuItem
-			v-for="action in actions">
+		<MenuItem v-for="(action, index) in actions" :key="'menuItem-' + index">
 			{{ action.label }}
 		</MenuItem>
 	</menu>

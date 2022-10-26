@@ -27,10 +27,7 @@ module.exports = {
 		'eol-last': ['warn', 'always'],
 		indent: 'off',
 		'linebreak-style': ['error', 'unix'],
-		'max-len': ['warn', {
-			ignoreComments: true,
-			tabWidth: 4,
-		}],
+		'max-len': 'off',
 		'no-undef': 'off',
 		'quotes': ['error', 'single'],
 		'semi': ['error', 'never'],
@@ -55,6 +52,12 @@ module.exports = {
 		'vue/max-attributes-per-line': ['warn', {
 			singleline: 2,
 			multiline: 1,
+		}],
+		'vue/max-len': ['warn', {
+			comments: 80,
+			ignoreHTMLAttributeValues: true,
+			ignoreHTMLTextContents: true,
+			tabWidth: 4,
 		}],
 		'vue/multi-word-component-names': 'off',
 		'vue/multiline-html-element-content-newline': ['warn', {
