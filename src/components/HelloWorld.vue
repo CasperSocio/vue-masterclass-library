@@ -1,10 +1,13 @@
 <script setup lang="ts">
+import { useAuthStore } from '@/stores/auth'
 import { ref } from 'vue'
 import Button from './Button/Button.vue'
 
 defineProps<{
 	msg: string
 }>()
+
+const auth = useAuthStore()
 
 const count = ref(0)
 
@@ -43,6 +46,18 @@ const handleIncrement = () => {
 			Edit
 			<code>components/HelloWorld.vue</code> to test HMR
 		</p>
+	</div>
+
+	<div class="card">
+		<p v-if="auth.user">
+			User: {{ auth.userFullName }}
+		</p>
+		<Button v-if="!auth.user" @click="auth.login()">
+			Login
+		</Button>
+		<Button v-if="auth.user" @click="auth.logout()">
+			Logout
+		</Button>
 	</div>
 
 	<p>

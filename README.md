@@ -25,6 +25,7 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 	- [ESLint-plugin-vue](https://eslint.vuejs.org/)
 	- [TypeScript ESLint](https://typescript-eslint.io/)
 - Programming language - [TypeScript](https://www.typescriptlang.org/)
+- Routing - [Vue Router](https://router.vuejs.org/)
 - State management - [Pinia](https://pinia.vuejs.org/)
 - Styling language - [Sass](https://sass-lang.com/)
 - Test suite - [Cypress](https://www.cypress.io/)
