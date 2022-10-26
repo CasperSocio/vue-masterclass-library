@@ -37,4 +37,4 @@ Run `npm run dev` to start development server.
 
 Run `npm run storybook` to start design system server.
 
-Run `npm run test` to open the testing suite (Cypress).
+Run `npm test` to open the testing suite (Cypress).
