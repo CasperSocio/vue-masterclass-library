@@ -1,3 +1,13 @@
+<script setup lang="ts">
+import MyButton from './Button.vue'
+
+defineProps<{
+	user: Record<string, unknown> | null
+}>()
+
+defineEmits(['login', 'logout', 'createAccount'])
+</script>
+
 <template>
 	<header>
 		<div class="wrapper">
@@ -50,21 +60,37 @@
 	</header>
 </template>
 
-<script>
-import './header.css'
-import MyButton from './Button.vue'
-
-export default {
-	name: 'MyHeader',
-
-	components: { MyButton },
-
-	props: {
-		user: {
-			type: Object,
-		},
-	},
-
-	emits: ['login', 'logout', 'createAccount'],
+<style scoped>
+.wrapper {
+	font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 15px 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
-</script>
+
+svg {
+	display: inline-block;
+	vertical-align: top;
+}
+
+h1 {
+	font-weight: 900;
+	font-size: 20px;
+	line-height: 1;
+	margin: 6px 0 6px 10px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+button + button {
+	margin-left: 10px;
+}
+
+.welcome {
+	color: #333;
+	font-size: 14px;
+	margin-right: 10px;
+}
+</style>
