@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useAuthStore } from '@/stores/auth'
-import { ref } from 'vue'
+import { useCounterStore } from '@/stores/counter.store'
 import Button from './Button/Button.vue'
 
 defineProps<{
@@ -8,17 +8,14 @@ defineProps<{
 }>()
 
 const auth = useAuthStore()
-
-const count = ref(0)
+const counter = useCounterStore()
 
 const handleDecrement = () => {
-	if (count.value > 0) {
-		count.value--
-	}
+	counter.decrement()
 }
 
 const handleIncrement = () => {
-	count.value++
+	counter.increment()
 }
 </script>
 
@@ -26,20 +23,20 @@ const handleIncrement = () => {
 	<h1>{{ msg }}</h1>
 
 	<div class="card">
-		<p>Count is {{ count }}</p>
-
-		<!-- Increment button -->
-		<Button
-			variant="primary"
-			@click="handleIncrement">
-			increment
-		</Button>
+		<p>Count is {{ counter.count }}</p>
 
 		<!-- Decrement button -->
 		<Button
 			variant="secondary"
 			@click="handleDecrement">
 			decrement
+		</Button>
+
+		<!-- Increment button -->
+		<Button
+			variant="primary"
+			@click="handleIncrement">
+			increment
 		</Button>
 
 		<p>
