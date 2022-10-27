@@ -13,7 +13,6 @@ const props = withDefaults(defineProps<{
 const emit = defineEmits(['click'])
 
 const classes = computed(() => ({
-	'Button': true,
 	'Button--primary': props.primary,
 	'Button--secondary': !props.primary,
 	[`Button--${props.size}`]: true,
@@ -22,6 +21,7 @@ const classes = computed(() => ({
 
 <template>
 	<button
+		class="Button"
 		:class="classes"
 		type="button"
 		@click="emit('click')">

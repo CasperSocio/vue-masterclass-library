@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+
 const props = withDefaults(defineProps<{
 	shape?: 'pill' | 'square'
 	type?: 'button' | 'reset' | 'submit'
@@ -11,15 +13,15 @@ const props = withDefaults(defineProps<{
 
 const emit = defineEmits(['click'])
 
-const classes = [
-	'Button',
-	`Button--${ props.shape }`,
-	`Button--${ props.variant }`,
-]
+const classes = computed(() => ({
+	[`Button--${ props.shape }`]: true,
+	[`Button--${ props.variant }`]: true,
+}))
 </script>
 
 <template>
 	<button
+		class="Button"
 		:class="classes"
 		:type="type"
 		@click="emit('click')">
@@ -29,34 +31,34 @@ const classes = [
 
 <style scoped lang="scss">
 .Button {
-    --button-bg: slategray;
-    --button-border-radius: 5rem;
+	--button-bg: slategray;
+	--button-border-radius: 5rem;
 
-    background-color: var(--button-bg);
-    border: 1px solid transparent;
-    border-radius: var(--button-border-radius);
-    color: white;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 1em;
-    font-weight: 500;
-    padding: 0.6em 1.2em;
-    transition: border-color 0.25s;
+	background-color: var(--button-bg);
+	border: 1px solid transparent;
+	border-radius: var(--button-border-radius);
+	color: white;
+	cursor: pointer;
+	font-family: inherit;
+	font-size: 1em;
+	font-weight: 500;
+	padding: 0.6em 1.2em;
+	transition: border-color 0.25s;
 
-    &:hover {
-        border-color: #646cff;
-    }
-    &:focus,
-    &:focus-visible {
-        outline: 4px auto -webkit-focus-ring-color;
-    }
-    
-    &--primary {
-        --button-bg: slateblue;
-    }
-    
-    &--square {
-        --button-border-radius: 4px;
-    }
+	&:hover {
+		border-color: #646cff;
+	}
+	&:focus,
+	&:focus-visible {
+		outline: 4px auto -webkit-focus-ring-color;
+	}
+	
+	&--primary {
+		--button-bg: slateblue;
+	}
+	
+	&--square {
+		--button-border-radius: 4px;
+	}
 }
 </style>
