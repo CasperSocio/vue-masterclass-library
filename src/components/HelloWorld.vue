@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useAuthStore } from '@/stores/auth'
+import { useAuthStore } from '@/stores/auth.store'
 import { useCounterStore } from '@/stores/counter.store'
 import Button from './Button/Button.vue'
 

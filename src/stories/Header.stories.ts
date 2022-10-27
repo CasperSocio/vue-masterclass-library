@@ -1,4 +1,4 @@
-import { useAuthStore } from '@/stores/auth'
+import { useAuthStore } from '@/stores/auth.store'
 import { userEvent, within } from '@storybook/testing-library'
 import { Meta, StoryFn } from '@storybook/vue3'
 import Header from './Header.vue'
