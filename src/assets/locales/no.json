@@ -1,0 +1,29 @@
+{
+	"auth": {
+		"actions": {
+			"logIn": "Logg inn",
+			"logOut": "Logg ut",
+			"signUp": "Lag bruker"
+		}
+	},
+	"common": {
+		"general": {
+			"activate": "Aktiver",
+			"add": "Legg til",
+			"address": "Adresse",
+			"approve": "Godkjenn",
+			"back": "Tilbake",
+			"cancel": "Avbryt",
+			"close": "Lukk",
+			"confirm": "Bekreft",
+			"delete": "Slett",
+			"edit": "Endre",
+			"readMore": "Les mer",
+			"status": "Status",
+			"tryAgain": "Prøv igjen",
+			"update": "Oppdater",
+			"user": "Bruker",
+			"welcome": "Velkommen"
+		}
+	}
+}

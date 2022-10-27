@@ -44,23 +44,23 @@ const handleCreateAccount = () => {
 				<span
 					v-if="auth.user"
 					class="welcome">
-					Welcome, <b>{{ auth.userFullName }}</b>!
+					{{ $t('common.general.welcome') }}, <b>{{ auth.userFullName }}</b>!
 				</span>
 				<my-button
 					v-if="auth.user"
 					size="small"
-					label="Log out"
+					:label="$t('auth.actions.logOut')"
 					@click="handleLogout" />
 				<my-button
 					v-if="!auth.user"
 					size="small"
-					label="Log in"
+					:label="$t('auth.actions.logIn')"
 					@click="handleLogin" />
 				<my-button
 					v-if="!auth.user"
 					primary
 					size="small"
-					label="Sign up"
+					:label="$t('auth.actions.signUp')"
 					@click="handleCreateAccount" />
 			</div>
 		</div>

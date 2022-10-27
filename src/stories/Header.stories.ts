@@ -1,3 +1,4 @@
+import i18n from '@/setup/i18n'
 import { useAuthStore } from '@/stores/auth.store'
 import { userEvent, within } from '@storybook/testing-library'
 import { Meta, StoryFn } from '@storybook/vue3'
@@ -33,7 +34,7 @@ LoggedIn.play = async ({ canvasElement }) => {
 	if (!auth.user) {
 		const canvas = within(canvasElement)
 		const loginButton = await canvas.getByRole('button', {
-			name: /Log in/i,
+			name: i18n.t('auth.actions.logIn'),
 		})
 		await userEvent.click(loginButton)
 	}

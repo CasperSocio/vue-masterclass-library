@@ -1,0 +1,29 @@
+{
+	"auth": {
+		"actions": {
+			"logIn": "Log in",
+			"logOut": "Log out",
+			"signUp": "Sign up"
+		}
+	},
+	"common": {
+		"general": {
+			"activate": "Activate",
+			"add": "Add",
+			"address": "Address",
+			"approve": "Approve",
+			"back": "Back",
+			"cancel": "Cancel",
+			"close": "Close",
+			"confirm": "Confirm",
+            "delete": "Delete",
+			"edit": "Edit",
+			"readMore": "Read more",
+            "status": "Status",
+			"tryAgain": "Try again",
+			"update": "Update",
+			"user": "User",
+			"welcome": "Welcome"
+		}
+	}
+}
