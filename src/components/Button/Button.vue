@@ -32,7 +32,7 @@ const classes = computed(() => ({
 	</button>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import '@/style/variables';
 
 .Button {
