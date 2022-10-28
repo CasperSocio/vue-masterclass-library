@@ -7,8 +7,9 @@ describe('Button', () => {
 		cy.get('Button')
 			.should('have.attr', 'type', 'button')
 			.should('have.class', 'Button')
-			.should('have.class', 'Button--pill')
-			.should('have.class', 'Button--secondary')
+			.should('have.class', 'Button--shape-pill')
+			.should('have.class', 'Button--size-medium')
+			.should('have.class', 'Button--variant-secondary')
 			.should('not.have.attr', 'disabled')
 	})
 	it('renders slot content', () => {
