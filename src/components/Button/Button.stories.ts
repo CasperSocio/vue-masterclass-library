@@ -13,6 +13,10 @@ export default {
 			defaultValue: 'pill',
 			options: ['pill', 'square'],
 		},
+		size: {
+			defaultValue: 'medium',
+			options: ['small', 'medium', 'large'],
+		},
 		type: {
 			defaultValue: 'button',
 			options: ['button', 'reset', 'submit'],
@@ -38,4 +42,14 @@ export const Default = Template.bind({})
 export const Primary = Template.bind({})
 Primary.args = {
 	variant: 'primary',
+}
+
+export const Small = Template.bind({})
+Small.args = {
+	size: 'small',
+}
+
+export const Large = Template.bind({})
+Large.args = {
+	size: 'large',
 }

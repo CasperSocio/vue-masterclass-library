@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import Button from '@/components/Button/Button.vue'
 import { useAuthStore } from '@/stores/auth.store'
-import MyButton from './Button.vue'
 
 const auth = useAuthStore()
 
@@ -46,22 +46,25 @@ const handleCreateAccount = () => {
 					class="welcome">
 					{{ $t('common.general.welcome') }}, <b>{{ auth.userFullName }}</b>!
 				</span>
-				<my-button
+				<Button
 					v-if="auth.user"
 					size="small"
-					:label="$t('auth.actions.logOut')"
-					@click="handleLogout" />
-				<my-button
+					@click="handleLogout">
+					{{ $t('auth.actions.logOut') }}
+				</Button>
+				<Button
 					v-if="!auth.user"
 					size="small"
-					:label="$t('auth.actions.logIn')"
-					@click="handleLogin" />
-				<my-button
+					@click="handleLogin">
+					{{ $t('auth.actions.logIn') }}
+				</Button>
+				<Button
 					v-if="!auth.user"
-					primary
 					size="small"
-					:label="$t('auth.actions.signUp')"
-					@click="handleCreateAccount" />
+					variant="primary"
+					@click="handleCreateAccount">
+					{{ $t('auth.actions.signUp') }}
+				</Button>
 			</div>
 		</div>
 	</header>
