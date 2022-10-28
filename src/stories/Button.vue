@@ -30,24 +30,33 @@ const classes = computed(() => ({
 </template>
 
 <style scoped lang="scss">
+@import '@/style/mixins';
+
 .Button {
-	font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-weight: 700;
-	border: 0;
+	--button-bg: transparent;
+	--button-border: transparent;
+	--button-color: #333;
+
+	background-color: var(--button-bg);
+	border: 1px solid var(--button-border);
 	border-radius: 3em;
+	color: var(--button-color);
 	cursor: pointer;
 	display: inline-block;
+	font-weight: 700;
 	line-height: 1;
 
 	&--primary {
-		color: white;
-		background-color: #1ea7fd;
+		--button-bg: #1ea7fd;
+		--button-color: #fff;
 	}
 
 	&--secondary {
-		color: #333;
-		background-color: transparent;
-		box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+		--button-border: #333;
+		@include darkmode {
+			--button-border: #e7e7e7;
+			--button-color: #e7e7e7;
+		}
 	}
 
 	&--small {

@@ -75,13 +75,11 @@ import Header from './Header.vue'
 
 <style scoped>
 section {
-	font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size: 14px;
 	line-height: 24px;
 	padding: 48px 20px;
 	margin: 0 auto;
 	max-width: 600px;
-	color: #333;
 }
 
 section h2 {
@@ -95,11 +93,6 @@ section h2 {
 
 section p {
 	margin: 1em 0;
-}
-
-section a {
-	text-decoration: none;
-	color: #1ea7fd;
 }
 
 section ul {
