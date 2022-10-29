@@ -1,4 +1,4 @@
-# Vue Masteclass
+# Vue Masteclass Library
 
 This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
@@ -25,7 +25,6 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 	- [ESLint-plugin-vue](https://eslint.vuejs.org/)
 	- [TypeScript ESLint](https://typescript-eslint.io/)
 - Programming language - [TypeScript](https://www.typescriptlang.org/)
-- Routing - [Vue Router](https://router.vuejs.org/)
 - State management - [Pinia](https://pinia.vuejs.org/)
 - Styling language - [Sass](https://sass-lang.com/)
 - Test suite - [Cypress](https://www.cypress.io/)
@@ -34,8 +33,6 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 
 Run `npm ci` to install dependencies.
 
-Run `npm run dev` to start development server.
-
-Run `npm run storybook` to start design system server.
+Run `npm run dev` to start design system server.
 
 Run `npm test` to open the testing suite (Cypress).

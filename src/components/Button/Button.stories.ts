@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from '@storybook/vue3'
-import Button from './Button.vue'
+import Button, { ButtonProps } from './Button.vue'
 
 export default {
 	title: 'Components/Button',
@@ -27,9 +27,9 @@ export default {
 		},
 		onClick: {},
 	},
-} as Meta<typeof Button>
+} as Meta<ButtonProps>
 
-const Template: StoryFn<typeof Button> = (args) => ({
+const Template: StoryFn<ButtonProps> = (args) => ({
 	components: { Button },
 	setup() {
 		return { args }

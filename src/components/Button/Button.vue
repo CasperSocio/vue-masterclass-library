@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
+export type Props = {
+	shape?: 'pill' | 'square'
+	size?: 'large' | 'medium' | 'small'
+	type?: 'button' | 'reset' | 'submit'
+	variant?: 'primary' | 'secondary'
+}
+
 const props = withDefaults(defineProps<{
 	shape?: 'pill' | 'square'
 	size?: 'large' | 'medium' | 'small'
