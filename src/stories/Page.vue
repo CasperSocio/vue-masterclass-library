@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Button from '@/components/Button/Button.vue'
 import Header from '@/components/Header/Header.vue'
+import Tip from '@/components/Tip/Tip.vue'
 import { useAuthStore } from '@/stores/auth-store'
 
 const auth = useAuthStore()
@@ -79,25 +80,26 @@ const auth = useAuthStore()
 				</a>
 				.
 			</p>
-			<div class="tip-wrapper">
-				<span class="tip">Tip</span>
-				Adjust the width of the canvas with the
-				<svg
-					width="10"
-					height="10"
-					viewBox="0 0 12 12"
-					xmlns="http://www.w3.org/2000/svg">
-					<g
-						fill="none"
-						fill-rule="evenodd">
-						<path
-							id="a"
-							d="M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z"
-							fill="#999" />
-					</g>
-				</svg>
-				Viewports addon in the toolbar
-			</div>
+			<Tip>
+				<p>
+					<b>Tip:</b> Adjust the width of the canvas with the
+					<svg
+						width="10"
+						height="10"
+						viewBox="0 0 12 12"
+						xmlns="http://www.w3.org/2000/svg">
+						<g
+							fill="none"
+							fill-rule="evenodd">
+							<path
+								id="a"
+								d="M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z"
+								fill="#999" />
+						</g>
+					</svg>
+					Viewports addon in the toolbar
+				</p>
+			</Tip>
 		</section>
 	</article>
 </template>
@@ -133,36 +135,7 @@ section li {
 	margin-bottom: 8px;
 }
 
-section .tip {
-	display: inline-block;
-	border-radius: 1em;
-	font-size: 11px;
-	line-height: 12px;
-	font-weight: 700;
-	background: #e7fdd8;
-	color: #66bf3c;
-	padding: 4px 12px;
-	margin-right: 10px;
-	vertical-align: top;
-}
-
-section .tip-wrapper {
-	font-size: 13px;
-	line-height: 20px;
-	margin-top: 40px;
-	margin-bottom: 40px;
-}
-
-section .tip-wrapper svg {
-	display: inline-block;
-	height: 12px;
-	width: 12px;
-	margin-right: 4px;
-	vertical-align: top;
-	margin-top: 3px;
-}
-
-section .tip-wrapper svg path {
+svg path {
 	fill: #1ea7fd;
 }
 </style>

@@ -20,7 +20,7 @@ defineProps<{
 
 <style scoped lang="scss">
 .Header {
-    border-bottom: 1px solid var(--color-text);
+    border-bottom: 1px solid var(--color-border);
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
