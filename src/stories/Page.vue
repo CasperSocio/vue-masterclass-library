@@ -1,10 +1,39 @@
 <script setup lang="ts">
-import Header from './Header.vue'
+import Button from '@/components/Button/Button.vue'
+import Header from '@/components/Header/Header.vue'
+import { useAuthStore } from '@/stores/auth-store'
+
+const auth = useAuthStore()
 </script>
 
 <template>
 	<article>
-		<Header />
+		<Header brand-name="Vue Masterclass">
+			<template #right>
+				<span v-if="auth.user">
+					{{ $t('common.general.welcome') }}, <b>{{ auth.userFullName }}</b>!
+				</span>
+				<Button
+					v-if="auth.user"
+					size="small"
+					@click="auth.logout">
+					{{ $t('auth.actions.logOut') }}
+				</Button>
+				<Button
+					v-if="!auth.user"
+					size="small"
+					@click="auth.login">
+					{{ $t('auth.actions.logIn') }}
+				</Button>
+				<Button
+					v-if="!auth.user"
+					size="small"
+					variant="primary"
+					@click="auth.login">
+					{{ $t('auth.actions.signUp') }}
+				</Button>
+			</template>
+		</Header>
 
 		<section>
 			<h2>Pages in Storybook</h2>

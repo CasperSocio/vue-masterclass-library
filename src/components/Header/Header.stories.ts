@@ -7,14 +7,30 @@ export default {
 	parameters: {
 		layout: 'fullscreen',
 	},
+	argTypes: {
+		// Props
+		brandName: {
+			defaultValue: 'Vue Masterclass',
+		},
+		// Slots
+		right: {
+			defaultValue: 'Hello',
+		},
+	},
 } as Meta<typeof Header>
 
 const Template: StoryFn<typeof Header> = (args) => ({
 	components: { Header },
 	setup() {
-		return { ...args }
+		return { args }
 	},
-	template: '<Header />',
+	template: `
+		<Header v-bind="args">
+			<template #right>
+				{{ args.right }}
+			</template>
+		</Header>
+	`,
 })
 
 export const Default = Template.bind({})

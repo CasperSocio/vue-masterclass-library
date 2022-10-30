@@ -1,17 +1,18 @@
+import { userEvent, within } from '@storybook/testing-library'
 import { Meta, StoryFn } from '@storybook/vue3'
-import {
-	LoggedIn as HeaderLoggedIn,
-	LoggedOut as HeaderLoggedOut,
-} from './Header.stories'
+import i18n from '../setup/i18n'
+import { useAuthStore } from '../stores/auth-store'
 import Page from './Page.vue'
 
 export default {
-	title: 'Example/Page',
+	title: 'Examples/Page',
 	component: Page,
 	parameters: {
 		layout: 'fullscreen',
 	},
 } as Meta<typeof Page>
+
+const auth = useAuthStore()
 
 const Template: StoryFn<typeof Page> = () => ({
 	components: { Page },
@@ -20,7 +21,19 @@ const Template: StoryFn<typeof Page> = () => ({
 })
 
 export const LoggedOut = Template.bind({})
-LoggedOut.play = HeaderLoggedOut.play
+LoggedOut.play = () => {
+	if (auth.user) {
+		auth.logout()
+	}
+}
 
 export const LoggedIn = Template.bind({})
-LoggedIn.play = HeaderLoggedIn.play
+LoggedIn.play = async ({ canvasElement }) => {
+	if (!auth.user) {
+		const canvas = within(canvasElement)
+		const loginButton = await canvas.getByRole('button', {
+			name: i18n.t('auth.actions.logIn'),
+		})
+		await userEvent.click(loginButton)
+	}
+}
