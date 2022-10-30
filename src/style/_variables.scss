@@ -1,17 +1,37 @@
 @import 'mixins';
 
-$color-primary: slateblue;
-$color-secondary: slategray;
+:root {
+	color-scheme: light dark;
 
-$color-background: #fff;
-$color-link: #646cff;
-$color-link-hover: #535bf2;
-$color-text: #333;
+	line-height: 1.5;
+	font-size: 16px;
+	font-synthesis: none;
+	font-weight: 400;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
 
-$font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	--color-primary: #6a5acd;
+	--color-primary-hover: #5447ae;
+
+	--color-secondary: #708090;
+
+	--color-black: #000;
+	--color-white: #fff;
+
+	--color-backbround: #fff;
+	--color-link: #646cff;
+	--color-link-hover: #535bf2;
+	--color-text: #333;
+
+	--font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
 
 @include darkmode {
-	$color-background: #242424;
-	$color-link-hover: #747bff;
-	$color-text: #fff;
+	:root {
+		--color-background: #242424;
+		--color-link-hover: #747bff;
+		--color-text: #fff;
+	}
 }
