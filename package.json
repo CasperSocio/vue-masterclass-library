@@ -1,5 +1,5 @@
 {
-    "name": "vue-masterclass-library",
+    "name": "@caspersocio/vue-masterclass-library",
     "version": "1.0.0",
     "author": "Casper Tollefsen (https://github.com/CasperSocio)",
     "scripts": {
@@ -56,10 +56,7 @@
     "license": "MIT",
     "main": "./dist/vm-lib.umd.cjs",
     "module": "./dist/vm-lib.js",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/CasperSocio/vue-masterclass-library"
-    },
+    "repository": "https://github.com/CasperSocio/vue-masterclass-library",
     "type": "module",
     "types": "./dist/types/index.d.ts"
 }
