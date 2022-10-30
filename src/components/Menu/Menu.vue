@@ -1,20 +1,25 @@
 <script setup lang="ts">
 import MenuItem from './MenuItem.vue'
 
-type Action = {
+export type MenuAction = {
 	/** The text to display on the menu item */
 	label: string
+	/** Method to perform on click */
+	fn: () => void
 }
 
 defineProps<{
 	/** Menu content/items */
-	actions: Action[]
+	actions: MenuAction[]
 }>()
 </script>
 
 <template>
 	<menu class="Menu">
-		<MenuItem v-for="(action, index) in actions" :key="'menuItem-' + index">
+		<MenuItem
+			v-for="(action, index) in actions"
+			:key="'menuItem-' + index"
+			@click="action.fn">
 			{{ action.label }}
 		</MenuItem>
 	</menu>
@@ -22,12 +27,13 @@ defineProps<{
 
 <style>
 .Menu {
-  background-color: #dedede;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  list-style: none;
-  padding: 2px;
-  width: fit-content;
+	background-color: #dedede;
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	list-style: none;
+	margin: 0;
+	padding: 2px;
+	width: fit-content;
 }
 </style>
