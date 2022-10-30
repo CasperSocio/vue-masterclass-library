@@ -1,13 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
-export type Props = {
-	shape?: 'pill' | 'square'
-	size?: 'large' | 'medium' | 'small'
-	type?: 'button' | 'reset' | 'submit'
-	variant?: 'primary' | 'secondary'
-}
-
 const props = withDefaults(defineProps<{
 	shape?: 'pill' | 'square'
 	size?: 'large' | 'medium' | 'small'
@@ -40,14 +33,14 @@ const classes = computed(() => ({
 </template>
 
 <style lang="scss">
-@import '@/style/variables';
+@import '@/style/mixins';
 
 .Button {
-	--button-bg: transparent;
-	--button-border: transparent;
-	--button-color: #333;
-
-	border: 1px solid;
+	background: linear-gradient(to right, var(--button-bg-hover) 50%, var(--button-bg) 50%);
+	background-position: right bottom;
+	background-size: 200% 100%;
+	border: 1px solid var(--button-border);
+	color: var(--button-color);
 	cursor: pointer;
 	font-weight: 400;
 	line-height: 1;
@@ -56,6 +49,12 @@ const classes = computed(() => ({
 	&:focus,
 	&:focus-visible {
 		outline: 4px auto -webkit-focus-ring-color;
+	}
+
+	&:hover {
+		background-position: left bottom;
+		border-color: var(--button-border-hover);
+		color: var(--button-color-hover);
 	}
 	
 	&--shape {
@@ -84,20 +83,26 @@ const classes = computed(() => ({
 
 	&--variant {
 		&-primary {
-			background-color: $color-primary;
-			border-color: transparent;
-			color: #fff;
+			--button-bg: var(--color-primary);
+			--button-bg-hover: var(--color-primary-hover);
+			--button-border: var(--color-primary);
+			--button-border-hover: var(--color-primary-hover);
+			--button-color: var(--color-white);
+			--button-color-hover: var(--color-white);
 		}
 		&-secondary {
-			background: linear-gradient(to right, $color-text 50%, transparent 50%);
-			background-position: right bottom;
-			background-size: 200% 100%;
-			border-color: $color-text;
-			color: $color-text;
+			--button-bg: transparent;
+			--button-bg-hover: #333;
+			--button-border: #333;
+			--button-border-hover: #333;
+			--button-color: #333;
+			--button-color-hover: var(--color-white);
 
-			&:hover {
-				background-position: left bottom;
-				color: #fff;
+			@include darkmode {
+				--button-bg-hover: var(--color-white);
+				--button-border: var(--color-white);
+				--button-color: var(--color-white);
+				--button-color-hover: #333;
 			}
 		}
 	}
