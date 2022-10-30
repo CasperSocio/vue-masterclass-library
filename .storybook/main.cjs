@@ -10,7 +10,8 @@ module.exports = {
 		'@storybook/addon-links',
 		'@storybook/addon-essentials',
 		'@storybook/addon-interactions',
-		'storybook-i18n'
+		'storybook-i18n',
+		'storybook-dark-mode'
 	],
 	framework: '@storybook/vue3',
 	core: {

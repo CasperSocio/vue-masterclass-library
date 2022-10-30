@@ -35,6 +35,7 @@
         "eslint-plugin-import": "^2.26.0",
         "eslint-plugin-vue": "^9.6.0",
         "sass": "^1.55.0",
+        "storybook-dark-mode": "^1.1.2",
         "storybook-i18n": "^1.1.4",
         "typescript": "^4.8.4",
         "vite": "^3.1.8",
@@ -52,7 +53,7 @@
     "files": [
         "dist"
     ],
-	"license": "MIT",
+    "license": "MIT",
     "main": "./dist/vm-lib.umd.cjs",
     "module": "./dist/vm-lib.js",
     "repository": {
