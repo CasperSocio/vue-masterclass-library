@@ -1,11 +1,12 @@
 # Logs
-logs
 *.log
+.dccache
+lerna-debug.log*
+logs
 npm-debug.log*
+pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
 
 node_modules
 dist
