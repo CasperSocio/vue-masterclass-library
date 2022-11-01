@@ -8,8 +8,9 @@
         "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore --fix src",
         "preview": "vite preview",
         "storybook:build": "build-storybook",
-        "test": "cypress run --component",
-        "test:components": "cypress open --component"
+        "test": "cypress open",
+        "test:ci": "cypress run --component --config video=false",
+        "test:open": "cypress open --component"
     },
     "dependencies": {
         "pinia": "^2.0.23",
