@@ -3,52 +3,64 @@ name: CI
 on: [ push ]
 
 jobs:
-  setup:
-    name: Setup
-    runs-on: ubuntu-latest
-    
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          cache: 'npm'
-      - run: npm ci
-      
   lint:
     name: Lint
-    needs: setup
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run lint
+    - uses: actions/checkout@v3
+    
+    - name: Cache Node Modules
+      id: node-cache
+      uses: actions/cache@v3
+      with:
+        path: node_modules
+        key: node-modules-${{ hashFiles('package-lock.json') }}
+    
+    - name: Install Dependencies
+      if: steps.node-cache.outputs.cache-hit != 'true'
+      run: npm ci
+      
+    - run: npm run lint
     
   build:
     name: Build
-    needs: setup
+    needs: lint
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run build --if-present
+    - uses: actions/checkout@v3
+    
+    - name: Cache Node Modules
+      id: node-cache
+      uses: actions/cache@v3
+      with:
+        path: node_modules
+        key: node-modules-${{ hashFiles('package-lock.json') }}
+    
+    - name: Install Dependencies
+      if: steps.node-cache.outputs.cache-hit != 'true'
+      run: npm ci
+      
+    - run: npm run build --if-present
       
   test:
     name: Test
-    needs: [ setup, build ]
+    needs: [ lint, build ]
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run test:ci
+    - uses: actions/checkout@v3
+    
+    - name: Cache Node Modules
+      id: node-cache
+      uses: actions/cache@v3
+      with:
+        path: node_modules
+        key: node-modules-${{ hashFiles('package-lock.json') }}
+    
+    - name: Install Dependencies
+      if: steps.node-cache.outputs.cache-hit != 'true'
+      run: npm ci
+      
+    - run: npm run test:ci
