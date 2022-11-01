@@ -12,10 +12,7 @@ export default defineConfig({
 		},
 		rollupOptions: {
 			external: [
-				'pinia',
 				'vue',
-				'vue-i18n',
-				'vue-router',
 			],
 			output: {
 				globals: {
