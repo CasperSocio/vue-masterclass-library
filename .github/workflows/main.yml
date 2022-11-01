@@ -1,6 +1,7 @@
 name: CI
 
-on: [ push ]
+on:
+  workflow_dispatch:
 
 jobs:
   setup:
@@ -20,7 +21,6 @@ jobs:
         key: node-modules-${{ hashFiles('package-lock.json') }}
     
     - name: Install Dependencies
-      if: steps.node-cache.outputs.cache-hit != 'true'
       run: npm ci
 
   lint:
