@@ -12,28 +12,19 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
       
-    - name: Node setup
+    - name: Setup Node
       run: npm ci
     
-    - name: Upload node_modules
-      uses: actions/upload-artifact@v3
+    - name: Cache Node Modules
+      id: node-cache
+      uses: actions/cache@v3
       with:
-        name: node_modules
         path: node_modules
-  
-  build:
-  
-    needs: setup
-    runs-on: ubuntu-latest
+        key: node-modules-${{ hashFiles('package-lock.json') }}
     
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v3
+    - name: Install Dependencies
+      if: steps.node-cache.outputs.cache-hit != 'true'
+      run: npm ci
       
-    - name: Download node_modules
-      uses: actions/download-artifact@v3
-      with:
-        name: node_modules
-        
     - name: Build
       run: npm run build
