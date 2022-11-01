@@ -18,10 +18,11 @@ jobs:
     
     - name: Install Dependencies
       if: steps.node-cache.outputs.cache-hit != 'true'
-      run: npm ci
+      run: npm i
       
   build:
   
+    needs: setup
     runs-on: ubuntu-latest
     
     steps:
