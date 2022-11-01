@@ -3,8 +3,29 @@ name: CI
 on: [ push ]
 
 jobs:
+  setup:
+    name: Setup
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Cache Node Modules
+      id: node-cache
+      uses: actions/cache@v3
+      with:
+        path: |
+          node_modules
+          /home/runner/.cache/Cypress
+        key: node-modules-${{ hashFiles('package-lock.json') }}
+    
+    - name: Install Dependencies
+      if: steps.node-cache.outputs.cache-hit != 'true'
+      run: npm ci
+
   lint:
     name: Lint
+    needs: setup
     runs-on: ubuntu-latest
     
     steps:
@@ -16,16 +37,12 @@ jobs:
       with:
         path: node_modules
         key: node-modules-${{ hashFiles('package-lock.json') }}
-    
-    - name: Install Dependencies
-      if: steps.node-cache.outputs.cache-hit != 'true'
-      run: npm ci
       
     - run: npm run lint
     
   build:
     name: Build
-    needs: lint
+    needs: setup
     runs-on: ubuntu-latest
     
     steps:
@@ -37,16 +54,12 @@ jobs:
       with:
         path: node_modules
         key: node-modules-${{ hashFiles('package-lock.json') }}
-    
-    - name: Install Dependencies
-      if: steps.node-cache.outputs.cache-hit != 'true'
-      run: npm ci
       
     - run: npm run build --if-present
       
   test:
     name: Test
-    needs: [ lint, build ]
+    needs: [ setup, build ]
     runs-on: ubuntu-latest
     
     steps:
@@ -56,11 +69,9 @@ jobs:
       id: node-cache
       uses: actions/cache@v3
       with:
-        path: node_modules
+        path: |
+          node_modules
+          /home/runner/.cache/Cypress
         key: node-modules-${{ hashFiles('package-lock.json') }}
-    
-    - name: Install Dependencies
-      if: steps.node-cache.outputs.cache-hit != 'true'
-      run: npm ci
       
     - run: npm run test:ci
