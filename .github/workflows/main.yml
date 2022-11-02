@@ -23,7 +23,7 @@ jobs:
         key: node-modules-${{ hashFiles('package-lock.json') }}
     
     - name: Install Dependencies
-      if: steps.node-cache.output.cache-hit != 'true'
+      if: steps.node-cache.outputs.cache-hit != 'true'
       run: npm ci
       
     - name: Lint
