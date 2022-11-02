@@ -1,0 +1,28 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "build",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "Build",
+			"detail": "vite build"
+		},
+		{
+			"type": "npm",
+			"script": "dev",
+			"problemMatcher": [],
+			"label": "Dev",
+			"detail": "start-storybook -p 6006"
+		},
+		{
+			"type": "npm",
+			"script": "test:run",
+			"group": "test",
+			"problemMatcher": [],
+			"label": "Test Run (Cypress)",
+			"detail": "cypress run"
+		}
+	]
+}
