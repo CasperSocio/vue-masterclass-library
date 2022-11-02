@@ -1,15 +1,17 @@
-name: CI
+name: Node CI
 
 on: [ push ]
 
 jobs:
-  setup:
-    name: Setup
+  build-lint-test:
     runs-on: ubuntu-latest
     
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v3
+        
+    - name: Node Setup
+      uses: actions/setup-node@v3
     
     - name: Cache Node Modules
       id: node-cache
@@ -19,64 +21,16 @@ jobs:
           node_modules
           /home/runner/.cache/Cypress
         key: node-modules-${{ hashFiles('package-lock.json') }}
-        
-    - name: Node Setup
-      if: steps.node-cache.output.cache-hit != 'true'
-      uses: actions/setup-node@v3
     
     - name: Install Dependencies
       if: steps.node-cache.output.cache-hit != 'true'
       run: npm ci
-
-  lint:
-    name: Lint
-    needs: setup
-    runs-on: ubuntu-latest
-    
-    steps:
-    - uses: actions/checkout@v3
-    
-    - name: Cache Node Modules
-      id: node-cache
-      uses: actions/cache@v3
-      with:
-        path: node_modules
-        key: node-modules-${{ hashFiles('package-lock.json') }}
       
-    - run: npm run lint
-    
-  build:
-    name: Build
-    needs: setup
-    runs-on: ubuntu-latest
-    
-    steps:
-    - uses: actions/checkout@v3
-    
-    - name: Cache Node Modules
-      id: node-cache
-      uses: actions/cache@v3
-      with:
-        path: node_modules
-        key: node-modules-${{ hashFiles('package-lock.json') }}
+    - name: Lint
+      run: npm run lint
       
-    - run: npm run build --if-present
+    - name: Build
+      run: npm run build --if-present
       
-  test:
-    name: Test
-    needs: [ setup, build ]
-    runs-on: ubuntu-latest
-    
-    steps:
-    - uses: actions/checkout@v3
-    
-    - name: Cache Node Modules
-      id: node-cache
-      uses: actions/cache@v3
-      with:
-        path: |
-          node_modules
-          /home/runner/.cache/Cypress
-        key: node-modules-${{ hashFiles('package-lock.json') }}
-      
-    - run: npm run test:ci
+    - name: Test
+      run: npm run test:ci
