@@ -99,10 +99,10 @@ const classes = computed(() => ({
 			--button-color-hover: var(--color-white);
 
 			@include darkmode {
-				--button-bg-hover: var(--color-white);
-				--button-border: var(--color-white);
-				--button-color: var(--color-white);
-				--button-color-hover: #333;
+				--button-bg-hover: var(--color-text);
+				--button-border: var(--color-text);
+				--button-color: var(--color-text);
+				--button-color-hover: var(--color-background);
 			}
 		}
 	}
