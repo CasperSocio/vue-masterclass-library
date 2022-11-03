@@ -25,33 +25,60 @@ jobs:
         
       - run: npm run build
       
-  Lint:
-    needs: [ Build ]
-    runs-on: ubuntu-latest
-    steps:
-      - run: npm run lint
+      - run: npm run test:ci
         
   DeployDev:
     name: Deploy to Dev
     if: github.event_name == 'pull_request'
-    needs: [ Lint ]
+    needs: [ Build ]
     runs-on: ubuntu-latest
     environment:
       name: Development
       url: 'https://www.chromatic.com/builds?appId=63624c21a3dee89abb470279'
     steps:
-      - name: Deploy
-        run: npm run deploy:chromatic
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+      
+      - name: Install Dependencies
+        run: npm ci
+        
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          buildScriptName: build:storybook
+          scriptName: dev
         
   DeployStaging:
     name: Deploy to Staging
     if: github.event.ref == 'refs/heads/next'
-    needs: [ Lint ]
+    needs: [ Build ]
     runs-on: ubuntu-latest
     environment:
       name: Staging
       url: 'https://test.my-library.com'
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+      
+      - name: Install Dependencies
+        run: npm ci
+        
+      - name: Build
+        run: npm run build:storybook
+        
       - name: Deploy
         run: npm run deploy:test
         
@@ -63,6 +90,18 @@ jobs:
       name: Production
       url: 'https://lib.casperdesign.no'
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+      
+      - name: Install Dependencies
+        run: npm ci
+        
       - name: Build
         run: npm run build:storybook
         
