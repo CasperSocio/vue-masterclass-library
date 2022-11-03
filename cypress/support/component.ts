@@ -14,6 +14,7 @@
 // ***********************************************************
 
 import { mount } from 'cypress/vue'
+import '../../src/style/main.scss'
 
 Cypress.Commands.add('mount', mount)
 
