@@ -50,9 +50,14 @@ jobs:
         
       - name: Build
         run: npm run build:storybook
-        
-      - name: Deploy
-        run: npm run deploy:dev
+
+      - name: Connect to Firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CASPER_DESIGN }}'
+          projectId: casper-design
+          target: dev
         
   DeployStaging:
     name: Deploy to Staging

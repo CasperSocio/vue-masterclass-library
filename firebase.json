@@ -1,36 +1,40 @@
 {
-	"hosting": [{
-		"target": "dev",
-		"public": "dist-web",
-		"ignore": [
-			"firebase.json",
-			"**/.*",
-			"**/node_modules/**"
-		]
-	}, {
-		"target": "lib",
-		"public": "dist-web",
-		"ignore": [
-			"firebase.json",
-			"**/.*",
-			"**/node_modules/**"
-		]
-	}, {
-		"target": "test",
-		"public": "dist-web",
-		"ignore": [
-			"firebase.json",
-			"**/.*",
-			"**/node_modules/**"
-		]
-	}],
-	"emulators": {
-		"hosting": {
-			"port": 8000
-		},
-		"ui": {
-			"enabled": true
-		},
-		"singleProjectMode": true
-	}
+  "hosting": [
+    {
+      "target": "dev",
+      "public": "dist-web",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    },
+    {
+      "target": "lib",
+      "public": "dist-web",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    },
+    {
+      "target": "test",
+      "public": "dist-web",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    }
+  ],
+  "emulators": {
+    "hosting": {
+      "port": 8000
+    },
+    "ui": {
+      "enabled": true
+    },
+    "singleProjectMode": true
+  }
 }
