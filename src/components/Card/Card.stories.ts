@@ -5,6 +5,13 @@ import Button from '../Button/Button.vue'
 export default{
 	title: 'Components/Card',
 	component: Card,
+	parameters: {
+		docs: {
+			description: {
+				component: 'Cards contain content and actions that relate information about a subject.',
+			},
+		},
+	},
 	argTypes: {
 		// Props
 		subtitle: {
@@ -47,8 +54,22 @@ export const Subtitle = Template.bind({})
 Subtitle.args = {
 	subtitle: 'Can you dig it?',
 }
+Subtitle.parameters = {
+	docs: {
+		description: {
+			story: 'Subheads are smaller text elements, such as an article byline or a tagged location.',
+		},
+	},
+}
 
 export const Footer = Template.bind({})
 Footer.args = {
 	footer: true,
+}
+Footer.parameters = {
+	docs: {
+		description: {
+			story: 'Use the footer to provide metadata like "Last updated".',
+		},
+	},
 }
