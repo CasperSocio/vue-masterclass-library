@@ -51,7 +51,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: Development
-      url: 'https://dev.caspersocio.no'
+      url: 'https://dev.casperdesign.no'
     steps:
       - name: Download Storybook artifacts
         uses: actions/download-artifact@v3
@@ -73,25 +73,20 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: Staging
-      url: 'https://test.caspersocio.no'
+      url: 'https://test.casperdesign.no'
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      - name: Download Storybook artifacts
+        uses: actions/download-artifact@v3
         with:
-          node-version: 16
-          cache: 'npm'
-      
-      - name: Install Dependencies
-        run: npm ci
-        
-      - name: Build
-        run: npm run build:storybook
-        
-      - name: Deploy
-        run: npm run deploy:test
+          name: dist-web
+
+      - name: Deploy to Firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CASPER_DESIGN }}'
+          projectId: casper-design
+          channelId: live
+          target: test
         
   DeployProd:
     name: Deploy to Production
@@ -101,20 +96,15 @@ jobs:
       name: Production
       url: 'https://lib.casperdesign.no'
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      - name: Download Storybook artifacts
+        uses: actions/download-artifact@v3
         with:
-          node-version: 16
-          cache: 'npm'
-      
-      - name: Install Dependencies
-        run: npm ci
-        
-      - name: Build
-        run: npm run build:storybook
-        
-      - name: Deploy
-        run: npm run deploy
+          name: dist-web
+
+      - name: Deploy to Firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CASPER_DESIGN }}'
+          projectId: casper-design
+          channelId: live
+          target: lib
