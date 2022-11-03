@@ -1,0 +1,110 @@
+name: CI + CD
+
+on:
+  push:
+    branches: [ next ]
+  pull_request:
+    branches: [ next ]
+  workflow_dispatch:
+  
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build package
+        run: npm run build
+        
+      - name: Build Storybook
+        run: npm run build:storybook
+      
+      - name: Test
+        run: npm run test:ci
+
+      - name: Archive package artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist
+
+      - name: Archive Storybook artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-web
+          path: |
+            dist-web/
+            .firebaserc
+            firebase.json
+        
+  DeployDev:
+    name: Deploy to Dev
+    if: github.event_name == 'pull_request'
+    needs: [ Build ]
+    runs-on: ubuntu-latest
+    environment:
+      name: Development
+      url: 'https://dev.casperdesign.no'
+    steps:
+      - name: Download Storybook artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: dist-web
+
+      - name: Deploy to Firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CASPER_DESIGN }}'
+          projectId: casper-design
+          channelId: live
+          target: dev
+        
+  DeployStaging:
+    name: Deploy to Staging
+    if: github.event.ref == 'refs/heads/next'
+    needs: [ Build ]
+    runs-on: ubuntu-latest
+    environment:
+      name: Staging
+      url: 'https://test.casperdesign.no'
+    steps:
+      - name: Download Storybook artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: dist-web
+
+      - name: Deploy to Firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CASPER_DESIGN }}'
+          projectId: casper-design
+          channelId: live
+          target: test
+        
+  DeployProd:
+    name: Deploy to Production
+    needs: [ DeployStaging ]
+    runs-on: ubuntu-latest
+    environment:
+      name: Production
+      url: 'https://lib.casperdesign.no'
+    steps:
+      - name: Download Storybook artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: dist-web
+
+      - name: Deploy to Firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CASPER_DESIGN }}'
+          projectId: casper-design
+          channelId: live
+          target: lib
