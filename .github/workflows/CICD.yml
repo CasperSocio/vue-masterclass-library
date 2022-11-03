@@ -13,19 +13,33 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: 'npm'
       
-      - name: Install Dependencies
+      - name: Install dependencies
         run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build package
+        run: npm build
         
-      - run: npm run build
+      - name: Build Storybook
+        run: npm run build:storybook
       
-      - run: npm run test:ci
+      - name: Test
+        run: npm run test:ci
+
+      - name: Archive package artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist
+
+      - name: Archive Storybook artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-web
+          path: dist-web
         
   DeployDev:
     name: Deploy to Dev
@@ -36,27 +50,18 @@ jobs:
       name: Development
       url: 'https://dev.caspersocio.no'
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      - name: Download Storybook artifacts
+        uses: actions/download-artifact@v3
         with:
-          node-version: 16
-          cache: 'npm'
-      
-      - name: Install Dependencies
-        run: npm ci
-        
-      - name: Build
-        run: npm run build:storybook
+          name: dist-web
 
-      - name: Connect to Firebase
+      - name: Deploy to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CASPER_DESIGN }}'
           projectId: casper-design
+          channelId: live
           target: dev
         
   DeployStaging:
