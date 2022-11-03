@@ -43,4 +43,12 @@ const Template: StoryFn<typeof Card> = (args) => ({
 
 export const Default = Template.bind({})
 
+export const Subtitle = Template.bind({})
+Subtitle.args = {
+	subtitle: 'Can you dig it?',
+}
+
 export const Footer = Template.bind({})
+Footer.args = {
+	footer: true,
+}
