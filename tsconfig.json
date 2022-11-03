@@ -30,16 +30,13 @@
 		]
 	},
 	"exclude": [
-		"cypress",
-		"node_modules",
-		"src/**/*.cy.ts",
-		"src/**/*.stories.ts",
-		"src/vite-env.d.ts"
+		"node_modules"
 	],
 	"include": [
 		"src/**/*.ts",
 		"src/**/*.vue",
-		"vite.config.ts"
+		"vite.config.ts",
+		"cypress/**/*.ts"
 	],
 	"references": [{ "path": "./tsconfig.node.json" }]
 }
