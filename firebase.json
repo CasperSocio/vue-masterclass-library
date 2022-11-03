@@ -1,5 +1,13 @@
 {
 	"hosting": [{
+		"target": "dev",
+		"public": "dist-web",
+		"ignore": [
+			"firebase.json",
+			"**/.*",
+			"**/node_modules/**"
+		]
+	}, {
 		"target": "lib",
 		"public": "dist-web",
 		"ignore": [

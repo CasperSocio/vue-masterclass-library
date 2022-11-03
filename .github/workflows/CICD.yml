@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: Development
-      url: 'https://www.chromatic.com/builds?appId=63624c21a3dee89abb470279'
+      url: 'https://dev.caspersocio.no'
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -51,11 +51,8 @@ jobs:
       - name: Build
         run: npm run build:storybook
         
-      - name: Publish to Chromatic
-        uses: chromaui/action@v1
-        with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          storybookBuildDir: dist-web
+      - name: Deploy
+        run: npm run deploy:dev
         
   DeployStaging:
     name: Deploy to Staging
@@ -64,7 +61,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: Staging
-      url: 'https://test.my-library.com'
+      url: 'https://test.caspersocio.no'
     steps:
       - name: Checkout
         uses: actions/checkout@v3

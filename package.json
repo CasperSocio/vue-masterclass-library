@@ -6,6 +6,7 @@
         "build": "vite build",
         "build:storybook": "build-storybook -o dist-web",
         "deploy": "firebase deploy --only hosting:lib",
+        "deploy:dev": "firebase deploy --only hosting:dev",
         "deploy:test": "firebase deploy --only hosting:test",
         "dev": "start-storybook -p 6006",
         "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore --fix src",

@@ -10,6 +10,9 @@
         ],
         "test": [
           "test-casperdesign"
+        ],
+        "dev": [
+          "dev-casperdesign"
         ]
       }
     }
