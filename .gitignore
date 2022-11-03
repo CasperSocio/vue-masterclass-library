@@ -8,13 +8,16 @@ pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-node_modules
-dist
-dist-ssr
+*.cache
 *.local
 
 cypress/screenshots/
 cypress/videos/
+dist
+dist-ssr
+dist-web
+node_modules
+storybook-static
 
 # Editor directories and files
 .idea

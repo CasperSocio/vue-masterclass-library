@@ -1,0 +1,18 @@
+{
+  "projects": {
+    "default": "casper-design"
+  },
+  "targets": {
+    "casper-design": {
+      "hosting": {
+        "lib": [
+          "lib-casperdesign"
+        ],
+        "test": [
+          "test-casperdesign"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
