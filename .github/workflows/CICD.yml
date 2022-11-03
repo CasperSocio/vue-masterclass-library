@@ -4,7 +4,7 @@ on:
   push:
     branches: [ next ]
   pull_request:
-    branches: [ next, release/* ]
+    branches: [ next ]
   workflow_dispatch:
   
 jobs:
@@ -24,30 +24,36 @@ jobs:
         run: npm ci
         
       - run: npm run build
+      
+  Lint:
+    needs: [ Build ]
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm run lint
         
   DeployDev:
     name: Deploy to Dev
     if: github.event_name == 'pull_request'
-    needs: [ Build ]
+    needs: [ Lint ]
     runs-on: ubuntu-latest
     environment:
       name: Development
-      url: 'https://dev.my-library.com'
+      url: 'https://www.chromatic.com/builds?appId=63624c21a3dee89abb470279'
     steps:
       - name: Deploy
-        run: echo I am deploying!
+        run: npm run deploy:chromatic
         
   DeployStaging:
     name: Deploy to Staging
-    if: github.event.ref == 'ref/heads/main'
-    needs: [ Build ]
+    if: github.event.ref == 'refs/heads/next'
+    needs: [ Lint ]
     runs-on: ubuntu-latest
     environment:
       name: Staging
       url: 'https://test.my-library.com'
     steps:
       - name: Deploy
-        run: echo I am deploying!
+        run: npm run deploy:test
         
   DeployProd:
     name: Deploy to Production
@@ -55,7 +61,10 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: Production
-      url: 'https://www.my-library.com'
+      url: 'https://lib.casperdesign.no'
     steps:
+      - name: Build
+        run: npm run build:storybook
+        
       - name: Deploy
-        run: echo I am deploying!
+        run: npm run deploy
