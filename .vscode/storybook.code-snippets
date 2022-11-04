@@ -22,7 +22,7 @@
 		"body": [
 			"import { Meta, StoryFn } from '@storybook/vue3'",
 			"import ${1:Component} from './$1.vue'\n",
-			"export default{",
+			"export default {",
 			"\ttitle: 'Components/$1',",
 			"\tcomponent: $1,",
 			"} as Meta<typeof $1>\n",
