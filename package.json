@@ -1,71 +1,72 @@
 {
-    "name": "@caspersocio/vue-masterclass-library",
-    "version": "1.1.0",
-    "author": "Casper Tollefsen (https://github.com/CasperSocio)",
-    "scripts": {
-        "build": "vite build",
-        "build:storybook": "build-storybook -o dist-web",
-        "deploy": "firebase deploy --only hosting:lib",
-        "deploy:dev": "firebase deploy --only hosting:dev",
-        "deploy:test": "firebase deploy --only hosting:test",
-        "dev": "start-storybook -p 6006",
-        "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore --fix src",
-        "preview": "vite preview",
-        "test": "cypress open",
-        "test:ci": "cypress run --component --config video=false",
-        "test:open": "cypress open --component",
-        "test:run": "cypress run --component"
+  "name": "@caspersocio/vue-masterclass-library",
+  "version": "1.1.0",
+  "author": "Casper Tollefsen (https://github.com/CasperSocio)",
+  "scripts": {
+    "build": "vite build",
+    "build:storybook": "storybook build -o dist-web",
+    "deploy": "firebase deploy --only hosting:lib",
+    "deploy:dev": "firebase deploy --only hosting:dev",
+    "deploy:test": "firebase deploy --only hosting:test",
+    "dev": "storybook dev -p 6006",
+    "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore --fix src",
+    "preview": "vite preview",
+    "test": "cypress open",
+    "test:ci": "cypress run --component --config video=false",
+    "test:open": "cypress open --component",
+    "test:run": "cypress run --component"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "vue": "^3.2.41"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.6",
+    "@storybook/addon-actions": "^7.0.0-beta.46",
+    "@storybook/addon-essentials": "^7.0.0-beta.46",
+    "@storybook/addon-interactions": "^7.0.0-beta.46",
+    "@storybook/addon-links": "^7.0.0-beta.46",
+    "@storybook/testing-library": "^0.0.14-next.1",
+    "@storybook/vue3": "^7.0.0-beta.46",
+    "@storybook/vue3-vite": "^7.0.0-beta.46",
+    "@typescript-eslint/eslint-plugin": "^5.41.0",
+    "@typescript-eslint/parser": "^5.41.0",
+    "@vitejs/plugin-vue": "^3.2.0",
+    "babel-loader": "^8.2.5",
+    "chromatic": "^6.11.4",
+    "cypress": "^10.11.0",
+    "eslint": "^8.26.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-storybook": "^0.6.10",
+    "eslint-plugin-vue": "^9.7.0",
+    "pinia": "^2.0.23",
+    "sass": "^1.55.0",
+    "storybook": "^7.0.0-beta.46",
+    "storybook-dark-mode": "^2.0.5",
+    "storybook-i18n": "^1.1.4",
+    "typescript": "^4.8.4",
+    "vite": "^3.2.2",
+    "vite-plugin-dts": "^1.6.6",
+    "vue-i18n": "^9.2.2",
+    "vue-loader": "^17.0.1",
+    "vue-tsc": "^1.0.9"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/vm-lib.js",
+      "require": "./dist/vm-lib.umd.cjs"
     },
-    "dependencies": {
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "vue": "^3.2.41"
-    },
-    "devDependencies": {
-        "@babel/core": "^7.19.6",
-        "@storybook/addon-actions": "^6.5.16",
-        "@storybook/addon-essentials": "^6.5.16",
-        "@storybook/addon-interactions": "^6.5.16",
-        "@storybook/addon-links": "^6.5.16",
-        "@storybook/builder-vite": "^0.4.1",
-        "@storybook/testing-library": "^0.0.13",
-        "@storybook/vue3": "^6.5.16",
-        "@typescript-eslint/eslint-plugin": "^5.41.0",
-        "@typescript-eslint/parser": "^5.41.0",
-        "@vitejs/plugin-vue": "^3.2.0",
-        "babel-loader": "^8.2.5",
-        "chromatic": "^6.11.4",
-        "cypress": "^10.11.0",
-        "eslint": "^8.26.0",
-        "eslint-plugin-cypress": "^2.12.1",
-        "eslint-plugin-import": "^2.26.0",
-        "eslint-plugin-storybook": "^0.6.10",
-        "eslint-plugin-vue": "^9.7.0",
-        "pinia": "^2.0.23",
-        "sass": "^1.55.0",
-        "storybook-dark-mode": "^2.0.5",
-        "storybook-i18n": "^1.1.4",
-        "typescript": "^4.8.4",
-        "vite": "^3.2.2",
-        "vite-plugin-dts": "^1.6.6",
-        "vue-i18n": "^9.2.2",
-        "vue-loader": "^17.0.1",
-        "vue-tsc": "^1.0.9"
-    },
-    "exports": {
-        ".": {
-            "import": "./dist/vm-lib.js",
-            "require": "./dist/vm-lib.umd.cjs"
-        },
-        "./style.css": "./dist/style.css"
-    },
-    "files": [
-        "dist"
-    ],
-    "license": "MIT",
-    "main": "./dist/vm-lib.umd.cjs",
-    "module": "./dist/vm-lib.js",
-    "repository": "https://github.com/CasperSocio/vue-masterclass-library",
-    "type": "module",
-    "types": "./dist/types/index.d.ts"
+    "./style.css": "./dist/style.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "main": "./dist/vm-lib.umd.cjs",
+  "module": "./dist/vm-lib.js",
+  "repository": "https://github.com/CasperSocio/vue-masterclass-library",
+  "type": "module",
+  "types": "./dist/types/index.d.ts"
 }
