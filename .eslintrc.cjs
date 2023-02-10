@@ -9,20 +9,19 @@ module.exports = {
 		'plugin:@typescript-eslint/recommended',
 		'plugin:vue/vue3-recommended',
 		'plugin:cypress/recommended',
+		'plugin:storybook/recommended',
 	],
 	overrides: [],
 	parserOptions: {
 		parser: '@typescript-eslint/parser',
 	},
-	plugins: [
-		'@typescript-eslint',
-		'cypress',
-		'vue',
-	],
+	plugins: ['@typescript-eslint', 'cypress', 'vue'],
 	root: true,
 	rules: {
 		// Eslint rules
-		camelcase: ['warn', { properties: 'always' }],
+		camelcase: ['warn', {
+			properties: 'always',
+		}],
 		'comma-dangle': 'off',
 		'eol-last': ['warn', 'always'],
 		indent: 'off',
@@ -66,6 +65,8 @@ module.exports = {
 		}],
 		// TypeScript rules
 		'@typescript-eslint/comma-dangle': ['warn', 'always-multiline'],
-		'@typescript-eslint/indent': ['warn', 'tab', { SwitchCase: 1 }],
+		'@typescript-eslint/indent': ['warn', 'tab', {
+			SwitchCase: 1,
+		}],
 	},
 }
