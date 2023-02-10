@@ -12,26 +12,26 @@ const auth = useAuthStore()
 		<Header brand-name="Vue Masterclass">
 			<template #right>
 				<span v-if="auth.user">
-					{{ $t('common.general.welcome') }}, <b>{{ auth.userFullName }}</b>!
+					Welcome, <b>{{ auth.userFullName }}</b>!
 				</span>
 				<Button
 					v-if="auth.user"
 					size="small"
 					@click="auth.logout">
-					{{ $t('auth.actions.logOut') }}
+					Log out
 				</Button>
 				<Button
 					v-if="!auth.user"
 					size="small"
 					@click="auth.login">
-					{{ $t('auth.actions.logIn') }}
+					Log in
 				</Button>
 				<Button
 					v-if="!auth.user"
 					size="small"
 					variant="primary"
 					@click="auth.login">
-					{{ $t('auth.actions.signUp') }}
+					Sign up
 				</Button>
 			</template>
 		</Header>
