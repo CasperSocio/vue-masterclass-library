@@ -4,9 +4,12 @@ import Button from './Button.vue'
 const meta: Meta<typeof Button> = {
 	title: 'Components/Button',
 	component: Button,
-	render: (args: any) => ({
+	render: (args) => ({
 		components: {
 			Button,
+		},
+		setup() {
+			return { args }
 		},
 		template: `
 			<Button v-bind="args">Click me</Button>
