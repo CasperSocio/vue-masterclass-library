@@ -1,6 +1,6 @@
+import { useAuthStore } from '@/stores/auth-store'
 import { userEvent, within } from '@storybook/testing-library'
 import { Meta, StoryObj } from '@storybook/vue3'
-import { useAuthStore } from '../stores/auth-store'
 import Page from './Page.vue'
 
 const meta: Meta<typeof Page> = {
@@ -12,20 +12,24 @@ const meta: Meta<typeof Page> = {
 }
 export default meta
 
-const auth = useAuthStore()
-
 type Story = StoryObj<typeof Page>
 
 export const LoggedOut: Story = {
-	play: () => {
+	play: async ({ canvasElement }) => {
+		const auth = useAuthStore()
 		if (auth.user) {
-			auth.logout()
+			const canvas = within(canvasElement)
+			const logoutButton = await canvas.getByRole('button', {
+				name: /Log out/i,
+			})
+			await userEvent.click(logoutButton)
 		}
 	},
 }
 
 export const LoggedIn: Story = {
 	play: async ({ canvasElement }) => {
+		const auth = useAuthStore()
 		if (!auth.user) {
 			const canvas = within(canvasElement)
 			const loginButton = await canvas.getByRole('button', {
