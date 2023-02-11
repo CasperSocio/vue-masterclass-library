@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/vue3'
+import { iconNames } from './Icon.utils'
 import Icon from './Icon.vue'
 
 /**
@@ -10,12 +11,7 @@ const meta: Meta<typeof Icon> = {
 	argTypes: {
 		name: {
 			control: 'select',
-			options: [
-				'checkbox-false',
-				'checkbox-true-outline',
-				'checkbox-true',
-				'hamburger',
-			],
+			options: iconNames,
 		},
 		size: {
 			control: 'number',

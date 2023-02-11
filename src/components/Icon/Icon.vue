@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import InlineSvg from 'vue-inline-svg'
+import { IconName } from './Icon.utils'
 
 const props = withDefaults(defineProps<{
 	/** The name of the icon to be used. */
-	name: string
+	name: IconName
 	/**
 	 * The icon width and height in pixels.  
 	 * System icons are locked to a 1:1 aspect ratio.
@@ -27,7 +28,7 @@ function getIconPath(): string {
 
 <style scoped lang="scss">
 svg {
-	display: inline-block;
+	display: block;
 	fill: currentColor;
 }
 </style>
