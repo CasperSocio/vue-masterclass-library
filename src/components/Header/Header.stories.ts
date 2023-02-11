@@ -7,19 +7,6 @@ const meta: Meta<typeof Header> = {
 	parameters: {
 		layout: 'fullscreen',
 	},
-	render: (args) => ({
-		components: {
-			Header,
-		},
-		setup() {
-			return { args }
-		},
-		template: `
-			<Header v-bind="args">
-				<template #right><p>right</p></template>
-			</Header>
-		`,
-	}),
 	argTypes: {
 		brandName: {
 			control: 'text',
@@ -34,4 +21,18 @@ export default meta
 
 type Story = StoryObj<typeof Header>
 
-export const Default: Story = {}
+export const Default: Story = {
+	render: (args) => ({
+		components: {
+			Header,
+		},
+		setup() {
+			return { args }
+		},
+		template: `
+			<Header v-bind="args">
+				<template #right><p>right</p></template>
+			</Header>
+		`,
+	}),
+}
