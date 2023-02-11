@@ -1,31 +1,24 @@
-import { Meta, StoryFn } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3'
 import Menu from './Menu.vue'
 
-export default {
+const meta: Meta<typeof Menu> = {
 	title: 'Components/Menu',
 	component: Menu,
-	argTypes: {
-		actions: {
-			defaultValue: [{
-				label: 'Item 1',
-				fn() { alert('Clicked item 1') },
-			}, {
-				label: 'Item 2',
-				fn() { alert('Clicked item 2') },
-			}, {
-				label: 'Item 3',
-				fn() { alert('Clicked item 3') },
-			}],
-		},
+	args: {
+		actions: [{
+			label: 'Item 1',
+			fn() { alert('Clicked item 1') },
+		}, {
+			label: 'Item 2',
+			fn() { alert('Clicked item 2') },
+		}, {
+			label: 'Item 3',
+			fn() { alert('Clicked item 3') },
+		}],
 	},
-} as Meta<typeof Menu>
+}
+export default meta
 
-const Template: StoryFn<typeof Menu> = (args) => ({
-	components: { Menu },
-	setup() {
-		return { args }
-	},
-	template: '<Menu v-bind="args" />',
-})
+type Story = StoryObj<typeof Menu>
 
-export const Default = Template.bind({})
+export const Default: Story = {}
