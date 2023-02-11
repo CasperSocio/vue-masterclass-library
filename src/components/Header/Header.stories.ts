@@ -1,36 +1,38 @@
-import { Meta, StoryFn } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3'
 import Header from './Header.vue'
 
-export default {
+const meta: Meta<typeof Header> = {
 	title: 'Components/Header',
 	component: Header,
 	parameters: {
 		layout: 'fullscreen',
 	},
 	argTypes: {
-		// Props
 		brandName: {
-			defaultValue: 'Vue Masterclass',
-		},
-		// Slots
-		right: {
-			defaultValue: 'Hello',
+			control: 'text',
 		},
 	},
-} as Meta<typeof Header>
-
-const Template: StoryFn<typeof Header> = (args) => ({
-	components: { Header },
-	setup() {
-		return { args }
+	args: {
+		brandName: 'Vue Masterclass',
 	},
-	template: `
-		<Header v-bind="args">
-			<template #right>
-				{{ args.right }}
-			</template>
-		</Header>
-	`,
-})
+}
 
-export const Default = Template.bind({})
+export default meta
+
+type Story = StoryObj<typeof Header>
+
+export const Default: Story = {
+	render: (args) => ({
+		components: {
+			Header,
+		},
+		setup() {
+			return { args }
+		},
+		template: `
+			<Header v-bind="args">
+				<template #right><p>right</p></template>
+			</Header>
+		`,
+	}),
+}

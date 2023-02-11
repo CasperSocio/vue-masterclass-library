@@ -1,39 +1,41 @@
+import { useAuthStore } from '@/stores/auth-store'
 import { userEvent, within } from '@storybook/testing-library'
-import { Meta, StoryFn } from '@storybook/vue3'
-import i18n from '../setup/i18n'
-import { useAuthStore } from '../stores/auth-store'
+import { Meta, StoryObj } from '@storybook/vue3'
 import Page from './Page.vue'
 
-export default {
+const meta: Meta<typeof Page> = {
 	title: 'Examples/Page',
 	component: Page,
 	parameters: {
 		layout: 'fullscreen',
 	},
-} as Meta<typeof Page>
+}
+export default meta
 
-const auth = useAuthStore()
+type Story = StoryObj<typeof Page>
 
-const Template: StoryFn<typeof Page> = () => ({
-	components: { Page },
-
-	template: '<Page />',
-})
-
-export const LoggedOut = Template.bind({})
-LoggedOut.play = () => {
-	if (auth.user) {
-		auth.logout()
-	}
+export const LoggedOut: Story = {
+	play: async ({ canvasElement }) => {
+		const auth = useAuthStore()
+		if (auth.user) {
+			const canvas = within(canvasElement)
+			const logoutButton = await canvas.getByRole('button', {
+				name: /Log out/i,
+			})
+			await userEvent.click(logoutButton)
+		}
+	},
 }
 
-export const LoggedIn = Template.bind({})
-LoggedIn.play = async ({ canvasElement }) => {
-	if (!auth.user) {
-		const canvas = within(canvasElement)
-		const loginButton = await canvas.getByRole('button', {
-			name: i18n.t('auth.actions.logIn'),
-		})
-		await userEvent.click(loginButton)
-	}
+export const LoggedIn: Story = {
+	play: async ({ canvasElement }) => {
+		const auth = useAuthStore()
+		if (!auth.user) {
+			const canvas = within(canvasElement)
+			const loginButton = await canvas.getByRole('button', {
+				name: /Log in/i,
+			})
+			await userEvent.click(loginButton)
+		}
+	},
 }

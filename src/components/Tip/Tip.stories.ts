@@ -1,34 +1,39 @@
-import { Meta, StoryFn } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3'
 import Tip from './Tip.vue'
 
-export default{
+const meta: Meta<typeof Tip> = {
 	title: 'Components/Tip',
 	component: Tip,
-	argTypes: {
-		default: {
-			control: 'text',
-			defaultValue: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rutrum dictum mattis. Quisque imperdiet bibendum ante, vitae posuere tellus facilisis non.',
+	render: (args) => ({
+		components: {
+			Tip,
 		},
+		setup() {
+			return { args }
+		},
+		template: `
+			<Tip v-bind="args">
+				<p><b>Tip:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rutrum dictum mattis. Quisque imperdiet bibendum ante, vitae posuere tellus facilisis non.</p>
+			</Tip>
+		`,
+	}),
+	argTypes: {
 		variant: {
 			options: ['default', 'success'],
 		},
 	},
-} as Meta<typeof Tip>
-
-const Template: StoryFn<typeof Tip> = (args) => ({
-	components: { Tip },
-	setup() {
-		return { args }
+	args: {
+		variant: 'default',
 	},
-	template: '<Tip v-bind="args"><p><b>Tip:</b> {{ args.default }}</p></Tip>',
-})
-
-export const Default = Template.bind({})
-Default.args = {
-	variant: 'default',
 }
+export default meta
 
-export const Success = Template.bind({})
-Success.args = {
-	variant: 'success',
+type Story = StoryObj<typeof Tip>
+
+export const Default: Story = {}
+
+export const Success: Story = {
+	args: {
+		variant: 'success',
+	},
 }

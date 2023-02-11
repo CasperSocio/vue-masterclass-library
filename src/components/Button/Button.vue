@@ -16,6 +16,7 @@ const props = withDefaults(defineProps<{
 const emit = defineEmits(['click'])
 
 const classes = computed(() => ({
+	'Button': true,
 	[`Button--shape-${ props.shape }`]: true,
 	[`Button--size-${ props.size }`]: true,
 	[`Button--variant-${ props.variant }`]: true,
@@ -24,7 +25,6 @@ const classes = computed(() => ({
 
 <template>
 	<button
-		class="Button"
 		:class="classes"
 		:type="type"
 		@click="emit('click')">

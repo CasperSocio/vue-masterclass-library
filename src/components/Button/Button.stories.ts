@@ -1,55 +1,69 @@
-import { Meta, StoryFn } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3'
 import Button from './Button.vue'
 
-export default {
+const meta: Meta<typeof Button> = {
 	title: 'Components/Button',
 	component: Button,
-	argTypes: {
-		default: {
-			control: 'text',
-			defaultValue: 'Click me',
+	render: (args) => ({
+		components: {
+			Button,
 		},
+		setup() {
+			return { args }
+		},
+		template: `
+			<Button v-bind="args">Click me</Button>
+		`,
+	}),
+	argTypes: {
 		shape: {
-			defaultValue: 'pill',
+			control: 'select',
 			options: ['pill', 'square'],
 		},
 		size: {
-			defaultValue: 'medium',
+			control: 'select',
 			options: ['small', 'medium', 'large'],
 		},
 		type: {
-			defaultValue: 'button',
+			control: 'select',
 			options: ['button', 'reset', 'submit'],
 		},
 		variant: {
-			defaultValue: 'secondary',
+			control: 'select',
 			options: ['primary', 'secondary'],
 		},
-		onClick: {},
+		onClick: {
+			action: 'clicked',
+		},
 	},
-} as Meta<typeof Button>
-
-const Template: StoryFn<typeof Button> = (args) => ({
-	components: { Button },
-	setup() {
-		return { args }
+	args: {
+		shape: 'pill',
+		size: 'medium',
+		type: 'button',
+		variant: 'secondary',
 	},
-	template: '<Button v-bind="args">{{ args.default }}</Button>',
-})
-
-export const Default = Template.bind({})
-
-export const Primary = Template.bind({})
-Primary.args = {
-	variant: 'primary',
 }
 
-export const Small = Template.bind({})
-Small.args = {
-	size: 'small',
+export default meta
+
+type Story = StoryObj<typeof Button>
+
+export const Default: Story = {}
+
+export const Primary: Story = {
+	args: {
+		variant: 'primary',
+	},
 }
 
-export const Large = Template.bind({})
-Large.args = {
-	size: 'large',
+export const Small: Story = {
+	args: {
+		size: 'small',
+	},
+}
+
+export const Large: Story = {
+	args: {
+		size: 'large',
+	},
 }
