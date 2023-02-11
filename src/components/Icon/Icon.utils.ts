@@ -21,10 +21,14 @@ export const iconNames = [
 	'close',
 	'collapse-left',
 	'collapse-right',
+	'download',
 	'expand-left',
 	'expand-right',
 	'hamburger',
+	'login',
+	'logout',
 	'plus',
+	'upload',
 ] as const
 
 export type IconName = typeof iconNames[number]
