@@ -27,3 +27,40 @@ export default meta
 type Story = StoryObj<typeof Icon>
 
 export const Default: Story = {}
+
+export const Library: Story = {
+	decorators: [() => ({
+		setup() {
+			const containerStyle = {
+				display: 'flex',
+				flexWrap: 'wrap',
+				gap: '.5rem',
+			}
+			const cardStyle = {
+				alignItems: 'center',
+				border: '1px solid slategray',
+				display: 'flex',
+				flexDirection: 'column',
+				padding: '2rem 1rem .5rem',
+				textAlign: 'center',
+				width: '8rem',
+			}
+
+			return {
+				iconNames,
+				cardStyle,
+				containerStyle,
+			}
+		},
+		template: `
+			<div :style="containerStyle">
+				<div
+					v-for="name in iconNames"
+					:style="cardStyle">
+					<story :name="name" />
+					<p>{{ name }}</p>
+				</div>
+			</div>
+		`,
+	})],
+}
