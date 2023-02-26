@@ -8,6 +8,9 @@ const props = withDefaults(defineProps<{
 	 * Icon to display on button.
 	 */
 	icon?: IconName | null
+	/**
+	 * Which side to position the icon.
+	 */
 	iconPosition?: 'left' | 'right'
 	/**
 	 * Button shape.
