@@ -20,20 +20,15 @@
 		"prefix": "component:story",
 		"scope": "typescript",
 		"body": [
-			"import { Meta, StoryFn } from '@storybook/vue3'",
+			"import { Meta, StoryObj } from '@storybook/vue3'",
 			"import ${1:Component} from './$1.vue'\n",
-			"export default{",
+			"const meta: Meta<typeof $1> = {",
 			"\ttitle: 'Components/$1',",
 			"\tcomponent: $1,",
-			"} as Meta<typeof $1>\n",
-			"const Template: StoryFn<typeof $1> = (args) => ({",
-			"\tcomponents: { $1 },",
-			"\tsetup() {",
-			"\t\treturn { args }",
-			"\t},",
-			"\ttemplate: '<$1 v-bind=\"args\" />',",
-			"})\n",
-			"export const Default = Template.bind({})\n"
+			"}",
+			"export default meta\n",
+			"type Story = StoryObj<typeof meta>\n",
+			"export const Default: Story = {}\n",
 		]
 	}
 }
