@@ -1,6 +1,6 @@
 {
   "name": "@caspersocio/vue-masterclass-library",
-  "version": "1.1.0",
+  "version": "1.0.0-alpha.1",
   "author": "Casper Tollefsen (https://github.com/CasperSocio)",
   "scripts": {
     "build": "vite build",
