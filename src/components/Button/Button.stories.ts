@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/vue3'
+import { iconNames } from '../Icon/Icon.utils'
 import Button from './Button.vue'
 
 const meta: Meta<typeof Button> = {
@@ -16,6 +17,13 @@ const meta: Meta<typeof Button> = {
 		`,
 	}),
 	argTypes: {
+		icon: {
+			control: 'select',
+			options: iconNames,
+		},
+		iconPosition: {
+			options: ['left', 'right'],
+		},
 		shape: {
 			control: 'select',
 			options: ['pill', 'square'],
@@ -37,6 +45,7 @@ const meta: Meta<typeof Button> = {
 		},
 	},
 	args: {
+		iconPosition: 'left',
 		shape: 'pill',
 		size: 'medium',
 		type: 'button',
@@ -53,6 +62,16 @@ export const Default: Story = {}
 export const Primary: Story = {
 	args: {
 		variant: 'primary',
+	},
+}
+
+/**
+ * Add an icon to the button for improved UX.
+ */
+export const WithIcon: Story = {
+	args: {
+		icon: 'arrow-right',
+		iconPosition: 'right',
 	},
 }
 

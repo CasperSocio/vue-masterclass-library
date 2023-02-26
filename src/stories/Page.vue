@@ -16,12 +16,15 @@ const auth = useAuthStore()
 				</span>
 				<Button
 					v-if="auth.user"
+					icon="logout"
+					icon-position="left"
 					size="small"
 					@click="auth.logout">
 					Log out
 				</Button>
 				<Button
 					v-if="!auth.user"
+					icon="login"
 					size="small"
 					@click="auth.login">
 					Log in
