@@ -65,6 +65,16 @@ export const Primary: Story = {
 	},
 }
 
+/**
+ * Add an icon to the button for improved UX.
+ */
+export const WithIcon: Story = {
+	args: {
+		icon: 'arrow-right',
+		iconPosition: 'right',
+	},
+}
+
 export const Small: Story = {
 	args: {
 		size: 'small',
