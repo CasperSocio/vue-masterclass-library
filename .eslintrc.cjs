@@ -19,17 +19,18 @@ module.exports = {
 	root: true,
 	rules: {
 		// Eslint rules
-		camelcase: ['warn', {
+		'camelcase': ['warn', {
 			properties: 'always',
 		}],
 		'comma-dangle': 'off',
 		'eol-last': ['warn', 'always'],
-		indent: 'off',
+		'indent': 'off',
 		'linebreak-style': ['error', 'unix'],
 		'max-len': 'off',
 		'no-undef': 'off',
 		'quotes': ['error', 'single'],
 		'semi': ['error', 'never'],
+
 		// Vue rules
 		'vue/component-definition-name-casing': ['error', 'PascalCase'],
 		'vue/html-closing-bracket-newline': ['warn', {
@@ -53,7 +54,8 @@ module.exports = {
 			multiline: 1,
 		}],
 		'vue/max-len': ['warn', {
-			comments: 80,
+			code: 100,
+			comments: 120,
 			ignoreHTMLAttributeValues: true,
 			ignoreHTMLTextContents: true,
 			tabWidth: 4,
@@ -63,6 +65,7 @@ module.exports = {
 			allowEmptyLines: false,
 			ignores: ['pre'],
 		}],
+
 		// TypeScript rules
 		'@typescript-eslint/comma-dangle': ['warn', 'always-multiline'],
 		'@typescript-eslint/indent': ['warn', 'tab', {
