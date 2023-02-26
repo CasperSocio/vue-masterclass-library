@@ -13,10 +13,14 @@ const meta: Meta<typeof Button> = {
 			return { args }
 		},
 		template: `
-			<Button v-bind="args">Click me</Button>
+			<Button v-bind="args">{{ args.default }}</Button>
 		`,
 	}),
 	argTypes: {
+		// @ts-expect-error – missing type support
+		default: {
+			control: 'text',
+		},
 		icon: {
 			control: 'select',
 			options: iconNames,
@@ -45,6 +49,8 @@ const meta: Meta<typeof Button> = {
 		},
 	},
 	args: {
+		// @ts-expect-error – missing type support
+		default: 'Click me',
 		iconPosition: 'left',
 		shape: 'pill',
 		size: 'medium',
@@ -52,10 +58,9 @@ const meta: Meta<typeof Button> = {
 		variant: 'secondary',
 	},
 }
-
 export default meta
 
-type Story = StoryObj<typeof Button>
+type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
@@ -70,6 +75,8 @@ export const Primary: Story = {
  */
 export const WithIcon: Story = {
 	args: {
+		// @ts-expect-error – missing type support
+		default: 'Read more',
 		icon: 'arrow-right',
 		iconPosition: 'right',
 	},
@@ -85,4 +92,27 @@ export const Large: Story = {
 	args: {
 		size: 'large',
 	},
+}
+
+export const Shape: Story = {
+	decorators: [() => ({
+		template: `
+			<div style="align-items: center; display: flex; gap: 1rem;">
+				<story shape="pill" />
+				<story shape="square" />
+			</div>
+		`,
+	})],
+}
+
+export const Size: Story = {
+	decorators: [() => ({
+		template: `
+			<div style="align-items: center; display: flex; gap: 1rem;">
+				<story size="small" />
+				<story size="medium" />
+				<story size="large" />
+			</div>
+		`,
+	})],
 }
