@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/vue3'
 import Header from './Header.vue'
+import PlaceholderBlock from '../helpers/PlaceholderBlock/PlaceholderBlock.vue'
 
 const meta: Meta<typeof Header> = {
 	title: 'Components/Header',
@@ -25,13 +26,14 @@ export const Default: Story = {
 	render: (args) => ({
 		components: {
 			Header,
+			PlaceholderBlock,
 		},
 		setup() {
 			return { args }
 		},
 		template: `
 			<Header v-bind="args">
-				<template #right><p>right</p></template>
+				<template #right><PlaceholderBlock variant="A"></template>
 			</Header>
 		`,
 	}),
