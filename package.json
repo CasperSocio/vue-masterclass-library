@@ -19,18 +19,18 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "vue": "^3.2.41",
+    "vue": "^3.2.47",
     "vue-inline-svg": "^3.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.19.6",
-    "@storybook/addon-actions": "^7.0.0-beta.46",
-    "@storybook/addon-essentials": "^7.0.0-beta.46",
-    "@storybook/addon-interactions": "^7.0.0-beta.46",
-    "@storybook/addon-links": "^7.0.0-beta.46",
+    "@storybook/addon-actions": "^7.0.0-beta.53",
+    "@storybook/addon-essentials": "^7.0.0-beta.53",
+    "@storybook/addon-interactions": "^7.0.0-beta.53",
+    "@storybook/addon-links": "^7.0.0-beta.53",
     "@storybook/testing-library": "^0.0.14-next.1",
-    "@storybook/vue3": "^7.0.0-beta.46",
-    "@storybook/vue3-vite": "^7.0.0-beta.46",
+    "@storybook/vue3": "^7.0.0-beta.53",
+    "@storybook/vue3-vite": "^7.0.0-beta.53",
     "@typescript-eslint/eslint-plugin": "^5.41.0",
     "@typescript-eslint/parser": "^5.41.0",
     "@vitejs/plugin-vue": "^3.2.0",
@@ -42,16 +42,16 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-storybook": "^0.6.10",
     "eslint-plugin-vue": "^9.7.0",
-    "pinia": "^2.0.23",
+    "pinia": "^2.0.32",
     "sass": "^1.55.0",
-    "storybook": "^7.0.0-beta.46",
-    "storybook-dark-mode": "^2.0.5",
+    "storybook": "^7.0.0-beta.53",
+    "storybook-dark-mode": "^2.0.6",
     "typescript": "^4.8.4",
-    "vite": "^3.2.2",
+    "vite": "^3.2.5",
     "vite-plugin-dts": "^1.6.6",
     "vue-i18n": "^9.2.2",
     "vue-loader": "^17.0.1",
-    "vue-tsc": "^1.0.9"
+    "vue-tsc": "^1.0.24"
   },
   "exports": {
     ".": {
