@@ -21,4 +21,16 @@ describe('Button', () => {
 		cy.get('Button')
 			.should('have.text', 'Click me')
 	})
+	it('renders an icon', () => {
+		cy.mount(Button, {
+			props: {
+				icon: 'add'
+			},
+			slots: {
+				default: () => 'Click me'
+			}
+		})
+		cy.get('Button')
+			.should('contain.html', 'svg')
+	})
 })
