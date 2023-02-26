@@ -79,7 +79,7 @@ const classes = computed(() => ({
 
 .Button {
 	align-items: center;
-	background: linear-gradient(to right, var(--button-bg-hover) 50%, var(--button-bg) 50%);
+	background: var(--button-bg);
 	background-position: right bottom;
 	background-size: 200% 100%;
 	border: 1px solid var(--button-border);
@@ -88,7 +88,7 @@ const classes = computed(() => ({
 	display: inline-flex;
 	font-weight: 400;
 	line-height: 1;
-	transition: all 0.2s ease-out;
+	transition: all 0.3s ease-out;
 	
 	&:focus,
 	&:focus-visible {
@@ -96,7 +96,7 @@ const classes = computed(() => ({
 	}
 
 	&:hover {
-		background-position: left bottom;
+		background-color: var(--button-bg-hover);
 		border-color: var(--button-border-hover);
 		color: var(--button-color-hover);
 	}
