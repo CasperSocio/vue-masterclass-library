@@ -17,7 +17,6 @@ const meta: Meta<typeof Button> = {
 		`,
   }),
   argTypes: {
-    // @ts-expect-error – missing type support
     default: {
       control: 'text',
     },
@@ -49,7 +48,6 @@ const meta: Meta<typeof Button> = {
     },
   },
   args: {
-    // @ts-expect-error – missing type support
     default: 'Click me',
     iconPosition: 'left',
     shape: 'pill',
@@ -75,7 +73,6 @@ export const Primary: Story = {
  */
 export const WithIcon: Story = {
   args: {
-    // @ts-expect-error – missing type support
     default: 'Read more',
     icon: 'arrow-right',
     iconPosition: 'right',

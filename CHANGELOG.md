@@ -1,16 +1,24 @@
 # Changelog
 
-## v1.1.0
+## v1.1.0-alpha.1
 
-### Features
+#### Features
 
-- Components
-  - New Tip component
-- Styling
-  - New color variables
-- Added Tip to Page example
+- Add Icon component (#13)
+- Add PlaceholderBlock component
+- Add Tip component
+- Remove hover animation on Button component
+- Add icons to Button component
+- Add Card component (#8)
 
-### Changes
+#### Maintenance
 
-- Styling
-  - Moved properties from `_variables.scss` to `main.scss`
+- Migrate to Storybook 7 (#14)
+- Refactor components
+- Remove i18n
+- Improve linting
+- Upgrade Storybook to v7.0.0-rc.0 (#18)
+
+#### Dependency Upgrades
+
+- Upgrade dependencies
