@@ -21,9 +21,9 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 - Frontend tooling (builder) - [Vite](https://vitejs.dev/)
 - Frontend workshop - [Storybook](https://storybook.js.org/)
 - Linting
-	- [ESLint](https://eslint.org/)
-	- [ESLint-plugin-vue](https://eslint.vuejs.org/)
-	- [TypeScript ESLint](https://typescript-eslint.io/)
+  - [ESLint](https://eslint.org/)
+  - [ESLint-plugin-vue](https://eslint.vuejs.org/)
+  - [TypeScript ESLint](https://typescript-eslint.io/)
 - Programming language - [TypeScript](https://www.typescriptlang.org/)
 - State management - [Pinia](https://pinia.vuejs.org/)
 - Styling language - [Sass](https://sass-lang.com/)

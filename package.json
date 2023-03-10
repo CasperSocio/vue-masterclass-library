@@ -1,7 +1,22 @@
 {
   "name": "@caspersocio/vue-masterclass-library",
-  "version": "1.1.0",
-  "author": "Casper Tollefsen (https://github.com/CasperSocio)",
+  "version": "1.1.0-alpha.0",
+  "description": "A Vue component library",
+  "author": "CasperSocio (https://github.com/CasperSocio)",
+  "homepage": "https://lib.casperdesign.no/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CasperSocio/vue-masterclass-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CasperSocio/vue-masterclass-library/issues"
+  },
+  "license": "MIT",
+  "keywords": [
+    "component",
+    "library",
+    "vue"
+  ],
   "scripts": {
     "build": "vite build",
     "build:storybook": "storybook build -o dist-web",
@@ -9,8 +24,7 @@
     "deploy:dev": "firebase deploy --only hosting:dev",
     "deploy:test": "firebase deploy --only hosting:test",
     "dev": "storybook dev -p 6006",
-    "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore --fix src",
-    "preview": "vite preview",
+    "lint": "prettier -c .",
     "test": "cypress open",
     "test:ci": "cypress run --component --config video=false",
     "test:open": "cypress open --component",
@@ -19,39 +33,41 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "vue": "^3.2.41",
+    "vue": "^3.2.47",
     "vue-inline-svg": "^3.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.19.6",
-    "@storybook/addon-actions": "^7.0.0-beta.46",
-    "@storybook/addon-essentials": "^7.0.0-beta.46",
-    "@storybook/addon-interactions": "^7.0.0-beta.46",
-    "@storybook/addon-links": "^7.0.0-beta.46",
+    "@storybook/addon-actions": "^7.0.0-rc.0",
+    "@storybook/addon-essentials": "^7.0.0-rc.0",
+    "@storybook/addon-interactions": "^7.0.0-rc.0",
+    "@storybook/addon-links": "^7.0.0-rc.0",
     "@storybook/testing-library": "^0.0.14-next.1",
-    "@storybook/vue3": "^7.0.0-beta.46",
-    "@storybook/vue3-vite": "^7.0.0-beta.46",
+    "@storybook/vue3": "^7.0.0-rc.0",
+    "@storybook/vue3-vite": "^7.0.0-rc.0",
     "@typescript-eslint/eslint-plugin": "^5.41.0",
     "@typescript-eslint/parser": "^5.41.0",
-    "@vitejs/plugin-vue": "^3.2.0",
+    "@vitejs/plugin-vue": "^4.0.0",
     "babel-loader": "^8.2.5",
     "chromatic": "^6.11.4",
     "cypress": "^10.11.0",
     "eslint": "^8.26.0",
+    "eslint-config-prettier": "^8.7.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-storybook": "^0.6.10",
-    "eslint-plugin-vue": "^9.7.0",
-    "pinia": "^2.0.23",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-storybook": "^0.6.11",
+    "eslint-plugin-vue": "^9.9.0",
+    "pinia": "^2.0.32",
+    "prettier": "^2.8.4",
     "sass": "^1.55.0",
-    "storybook": "^7.0.0-beta.46",
-    "storybook-dark-mode": "^2.0.5",
-    "typescript": "^4.8.4",
-    "vite": "^3.2.2",
-    "vite-plugin-dts": "^1.6.6",
-    "vue-i18n": "^9.2.2",
+    "storybook": "^7.0.0-rc.0",
+    "storybook-dark-mode": "^3.0.0-canary.191.4282.0",
+    "typescript": "^4.9.5",
+    "vite": "^4.1.4",
+    "vite-plugin-dts": "^2.1.0",
     "vue-loader": "^17.0.1",
-    "vue-tsc": "^1.0.9"
+    "vue-tsc": "^1.2.0"
   },
   "exports": {
     ".": {
@@ -63,10 +79,8 @@
   "files": [
     "dist"
   ],
-  "license": "MIT",
   "main": "./dist/vm-lib.umd.cjs",
   "module": "./dist/vm-lib.js",
-  "repository": "https://github.com/CasperSocio/vue-masterclass-library",
   "type": "module",
   "types": "./dist/types/index.d.ts"
 }
