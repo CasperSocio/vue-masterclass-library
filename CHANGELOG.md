@@ -5,12 +5,12 @@
 ### Features
 
 - Components
-	- New Tip component
+  - New Tip component
 - Styling
-	- New color variables
+  - New color variables
 - Added Tip to Page example
 
 ### Changes
 
 - Styling
-	- Moved properties from `_variables.scss` to `main.scss`
+  - Moved properties from `_variables.scss` to `main.scss`

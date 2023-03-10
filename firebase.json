@@ -3,29 +3,17 @@
     {
       "target": "dev",
       "public": "dist-web",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ]
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
     },
     {
       "target": "lib",
       "public": "dist-web",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ]
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
     },
     {
       "target": "test",
       "public": "dist-web",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ]
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
     }
   ],
   "emulators": {
