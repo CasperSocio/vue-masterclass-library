@@ -10,12 +10,13 @@ module.exports = {
     'plugin:vue/vue3-recommended',
     'plugin:cypress/recommended',
     'plugin:storybook/recommended',
+    'prettier',
   ],
   overrides: [],
   parserOptions: {
     parser: '@typescript-eslint/parser',
   },
-  plugins: ['@typescript-eslint', 'cypress', 'vue'],
+  plugins: ['@typescript-eslint', 'cypress', 'prettier', 'vue'],
   root: true,
   rules: {
     // Eslint rules
@@ -31,6 +32,7 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     'max-len': 'off',
     'no-undef': 'off',
+    'prettier/prettier': ['error'],
     quotes: ['error', 'single'],
     semi: ['error', 'never'],
 
@@ -53,7 +55,7 @@ module.exports = {
     ],
     'vue/html-indent': [
       'warn',
-      'tab',
+      2,
       {
         attribute: 1,
         baseIndent: 1,
@@ -92,7 +94,7 @@ module.exports = {
     '@typescript-eslint/comma-dangle': ['error', 'always-multiline'],
     '@typescript-eslint/indent': [
       'warn',
-      'space',
+      2,
       {
         SwitchCase: 1,
       },
