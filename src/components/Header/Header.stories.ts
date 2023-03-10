@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/vue3'
 import PlaceholderBlock from '../helpers/PlaceholderBlock/PlaceholderBlock.vue'
 import Header from './Header.vue'
 
-const meta: Meta<typeof Header> = {
+const meta = {
   title: 'Components/Header',
   component: Header,
   parameters: {
@@ -16,25 +16,21 @@ const meta: Meta<typeof Header> = {
   args: {
     brandName: 'Vue Masterclass',
   },
-}
+} satisfies Meta<typeof Header>
 
 export default meta
 
-type Story = StoryObj<typeof Header>
+type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: (args) => ({
-    components: {
-      Header,
-      PlaceholderBlock,
-    },
-    setup() {
-      return { args }
-    },
+  render: () => ({
+    components: { Header, PlaceholderBlock },
     template: `
-			<Header v-bind="args">
-				<template #right><PlaceholderBlock variant="A"></template>
-			</Header>
-		`,
+      <Header>
+        <template #right>
+          <PlaceholderBlock variant="A" />
+        </template>
+      </Header>
+    `,
   }),
 }

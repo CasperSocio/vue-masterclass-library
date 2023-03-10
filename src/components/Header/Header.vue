@@ -7,13 +7,15 @@ defineProps<{
 
 <template>
   <header class="Header">
-    <div class="Header__left">
-      <p class="Header__brand-name">
-        {{ brandName }}
-      </p>
-    </div>
-    <div v-if="$slots.right" class="Header__right">
-      <slot name="right" />
+    <div class="Header__wrapper">
+      <div class="Header__left">
+        <p class="Header__brand-name">
+          {{ brandName }}
+        </p>
+      </div>
+      <div class="Header__right">
+        <slot name="right" />
+      </div>
     </div>
   </header>
 </template>
@@ -21,9 +23,8 @@ defineProps<{
 <style scoped lang="scss">
 .Header {
   border-bottom: 1px solid var(--color-border);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  margin: 0;
+  padding: 0;
 
   &__brand-name {
     display: inline-block;
@@ -31,7 +32,6 @@ defineProps<{
     font-weight: 600;
     line-height: 1;
     margin: 0;
-    padding: 1rem;
   }
 
   &__left {
@@ -45,7 +45,13 @@ defineProps<{
     display: flex;
     gap: 0.75rem;
     justify-content: flex-end;
-    padding: 0.5rem 1rem;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 1rem;
   }
 }
 </style>
