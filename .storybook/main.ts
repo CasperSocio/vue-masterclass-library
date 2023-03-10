@@ -7,6 +7,9 @@ const config: StorybookConfig = {
     '@storybook/addon-interactions',
     'storybook-dark-mode',
   ],
+  core: {
+    builder: '@storybook/builder-vite',
+  },
   docs: {
     autodocs: true,
   },

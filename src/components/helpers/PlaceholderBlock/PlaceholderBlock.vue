@@ -17,7 +17,7 @@ const classes = computed(() => ({
   </div>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 .PlaceholderBlock {
   align-items: center;
   background-color: var(--phb-bg);

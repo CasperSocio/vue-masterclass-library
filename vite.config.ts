@@ -26,6 +26,7 @@ export default defineConfig({
       entryRoot: 'src',
       insertTypesEntry: true,
       outputDir: 'dist/types',
+      tsConfigFilePath: './tsconfig.build.json',
     }),
   ],
   resolve: {
