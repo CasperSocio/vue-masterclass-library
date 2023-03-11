@@ -45,7 +45,9 @@ body:
       label: "Environment"
       description: "Please complete the following information:"
       value: |
-        | Library version | 1.1.0 |
+        | Area | Using |
+        | -- | -- |
+        | Library version | v1.1.0 |
         | Browser | Chrome |
         | Device | MacBook Pro (M1) |
         | OS | macOS 13.2.1 (22D68) |
