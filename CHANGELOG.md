@@ -1,6 +1,12 @@
 # Changelog
 
-## v1.1.0-alpha.0
+## next
+
+#### Documentation
+
+- Improve bug report template (#20)
+
+## v1.1.0-alpha.0 (23-03-11)
 
 #### Features
 
