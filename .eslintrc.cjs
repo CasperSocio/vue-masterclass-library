@@ -19,7 +19,6 @@ module.exports = {
   plugins: ['@typescript-eslint', 'cypress', 'prettier', 'vue'],
   root: true,
   rules: {
-    // Eslint rules
     camelcase: [
       'warn',
       {
@@ -36,7 +35,7 @@ module.exports = {
     quotes: ['error', 'single'],
     semi: ['error', 'never'],
 
-    // Vue rules
+    // Vue
     'vue/component-definition-name-casing': ['error', 'PascalCase'],
     'vue/html-closing-bracket-newline': [
       'warn',
@@ -90,7 +89,7 @@ module.exports = {
       },
     ],
 
-    // TypeScript rules
+    // TypeScript
     '@typescript-eslint/comma-dangle': ['error', 'always-multiline'],
     '@typescript-eslint/indent': [
       'warn',
